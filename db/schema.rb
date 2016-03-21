@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321171451) do
+ActiveRecord::Schema.define(version: 20160321180647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20160321171451) do
 
   add_index "books", ["genre_id", "format_id"], name: "index_books_on_genre_id_and_format_id", using: :btree
 
+  create_table "events", force: :cascade do |t|
+    t.string   "event"
+    t.integer  "user_id"
+    t.date     "release_date"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
   create_table "formats", force: :cascade do |t|
     t.string   "format"
     t.datetime "created_at", null: false
@@ -45,6 +55,16 @@ ActiveRecord::Schema.define(version: 20160321171451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "notes", force: :cascade do |t|
+    t.text     "info"
+    t.integer  "noteable_id"
+    t.string   "noteable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "notes", ["noteable_id"], name: "index_notes_on_noteable_id", using: :btree
 
   create_table "user_books", force: :cascade do |t|
     t.integer  "user_id"

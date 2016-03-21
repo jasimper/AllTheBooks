@@ -7,6 +7,6 @@ class CreateEvents < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :event, :user_id
+    add_index :events, :user_id
   end
 end
