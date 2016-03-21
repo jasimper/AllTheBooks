@@ -1,7 +1,45 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# genre_list = [
+#   "Science Fiction",
+#   "Satire",
+#   "Drama",
+#   "Action/Adventure",
+#   "Romance",
+#   "Mystery",
+#   "Horror",
+#   "Self Help",
+#   "Health",
+#   "Guide",
+#   "Travel",
+#   "Children's",
+#   "Religion, Spirituality & New Age",
+#   "Science",
+#   "History",
+#   "Math",
+#   "Anthology",
+#   "Poetry",
+#   "Encyclopedias",
+#   "Dictionaries",
+#   "Comics",
+#   "Art",
+#   "Cookbooks",
+#   "Diaries",
+#   "Journals",
+#   "Biographies",
+#   "Fantasy"
+# ]
 #
-# Examples:
+# genre_list.each do |genre|
+#   Genre.create(genre: genre)
+# end
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# format_list = [
+#   "Hardcover",
+#   "Paperback",
+#   "eBook",
+#   "Spiralbound",
+#   "Audiobook"
+# ]
+#
+# format_list.each do |format|
+#   Format.create(format: format)
+# end
