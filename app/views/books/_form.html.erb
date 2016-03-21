@@ -1,0 +1,61 @@
+<%= form_for(@book) do |f| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :isbn %><br>
+    <%= f.number_field :isbn %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :pub_date %><br>
+    <%= f.date_select :pub_date %>
+  </div>
+  <div class="field">
+    <%= f.label :genre_id %><br>
+    <%= f.number_field :genre_id %>
+  </div>
+  <div class="field">
+    <%= f.label :format_id %><br>
+    <%= f.number_field :format_id %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br>
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :has_read %><br>
+    <%= f.check_box :has_read %>
+  </div>
+  <div class="field">
+    <%= f.label :series %><br>
+    <%= f.check_box :series %>
+  </div>
+  <div class="field">
+    <%= f.label :series_num %><br>
+    <%= f.text_field :series_num %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

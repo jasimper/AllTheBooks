@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  isbn: 1
+  author: MyString
+  title: MyString
+  description: MyText
+  pub_date: 2016-03-21
+  genre_id: 1
+  format_id: 1
+  image_url: MyString
+  has_read: false
+  series: false
+  series_num: 1.5
+
+two:
+  isbn: 1
+  author: MyString
+  title: MyString
+  description: MyText
+  pub_date: 2016-03-21
+  genre_id: 1
+  format_id: 1
+  image_url: MyString
+  has_read: false
+  series: false
+  series_num: 1.5
