@@ -13,4 +13,11 @@ Rails.application.routes.draw do
     post '/users' => 'devise/registrations#create'
   end
 
+  concern :noteable do
+    resources :notes
+  end
+
+  resources :books, concerns: :noteable
+  resources :events, concerns: :noteable
+
 end
