@@ -9,6 +9,8 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'normalize-scss', '~> 4.0', '>= 4.0.3'
 
+gem 'font-awesome-sass', '~> 4.5.0'
+
 gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'

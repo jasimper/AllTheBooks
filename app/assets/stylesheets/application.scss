@@ -1,3 +1,9 @@
 @import
+  'variables',
   'base',
-  'books';
+  'books',
+  'header',
+  'ribbon';
+
+@import "font-awesome-sprockets";
+@import "font-awesome";

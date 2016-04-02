@@ -17,6 +17,12 @@ Rails.application.routes.draw do
     resources :notes
   end
 
+  resources :user_books do
+  member do
+    patch :has_read
+  end
+end
+
   resources :books, concerns: :noteable
   resources :events, concerns: :noteable
 

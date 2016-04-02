@@ -13,12 +13,12 @@
   <% end %>
 
   <div class="field half">
-    <%= f.label :isbn %><br>
-    <%= f.text_field :isbn %>
+    <%= f.label :isbn, 'ISBN' %><br>
+    <%= f.text_field :isbn, placeholder: 'Please enter ISBN with no dashes' %>
   </div>
   <div class="field half">
     <%= f.label :author %><br>
-    <%= f.text_field :author %>
+    <%= f.text_field :author, placeholder: 'First, then Last Name' %>
   </div>
   <div class="field whole">
     <%= f.label :title %><br>
@@ -29,7 +29,7 @@
     <%= f.text_area :description %>
   </div>
   <div class="field whole">
-    <%= f.label :pub_date %><br>
+    <%= f.label :pub_date, 'Publication Date' %><br>
     <%= f.date_field :pub_date %>
   </div>
   <div class="field half">
@@ -43,23 +43,19 @@
     <%= f.collection_select(:format_id, Format.all, :id, :format, {:include_blank => 'Select a Format'}) %>
   </div>
   <div class="field whole">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
+    <%= f.label :image_url, 'Image URL' %><br>
+    <%= f.text_field :image_url, placeholder: 'http://yourimagelink.com/image.jpg' %>
   </div>
-  <div class="field third">
-    <%= f.label :has_read %><br>
-    <%= f.check_box :has_read %>
-  </div>
-  <div class="field third">
-    <%= f.label :series %><br>
+  <div class="field half">
+    <%= f.label :series, 'Is this book part of a series?  ' %>
     <%= f.check_box :series %>
   </div>
-  <div class="field third">
-    <%= f.label :series_num %><br>
+  <div class="field half">
+    <%= f.label :series_num, 'Number in Series' %><br>
     <%= f.number_field :series_num %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save Book' %>
   </div>
 <% end %>
 </div>

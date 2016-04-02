@@ -1,7 +1,7 @@
 <div class="header">
   <% if current_user %>
   <%= link_to root_path, class: 'home__link' do %>
-  <i class="fa fa-home"></i>
+  <%= icon('home') %>
   <% end %>
     Welcome to your library, <%= current_user.name %> | <%= link_to '[ logout ]', '/logout' %>
   <% else %>

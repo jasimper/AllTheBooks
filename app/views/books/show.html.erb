@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Isbn:</strong>
+  <strong>ISBN:</strong>
   <%= @book.isbn %>
 </p>
 
@@ -21,39 +21,34 @@
 </p>
 
 <p>
-  <strong>Pub date:</strong>
+  <strong>Publication date:</strong>
   <%= @book.pub_date %>
 </p>
 
 <p>
   <strong>Genre:</strong>
-  <%= @book.genre_id %>
+  <%= @book.genre.genre %>
 </p>
 
 <p>
   <strong>Format:</strong>
-  <%= @book.format_id %>
+  <%= @book.format.format %>
 </p>
 
 <p>
-  <strong>Image url:</strong>
-  <%= @book.image_url %>
+  <strong>Image URL:</strong>
+  <%= image_tag @book.image_url %>
 </p>
-
+<% if @book.series %>
 <p>
-  <strong>Has read:</strong>
-  <%= @book.has_read %>
-</p>
-
-<p>
-  <strong>Series:</strong>
+  <strong>Series?:</strong>
   <%= @book.series %>
 </p>
 
 <p>
-  <strong>Series num:</strong>
+  <strong>Number in Series:</strong>
   <%= @book.series_num %>
 </p>
-
+<% end %>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

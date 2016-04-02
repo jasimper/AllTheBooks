@@ -9,5 +9,16 @@ html {
 .main {
   width: 90%;
   padding: 10px;
-  margin: 0 auto;
+  margin: 20px auto;
+}
+a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #4C4C4C;
+  &:hover {
+    color: #669966;
+  }
+  @media all and (max-width: $break-m) {
+    font-size: 1rem;
+  }
 }

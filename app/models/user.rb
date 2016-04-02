@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :user_books
+  has_many :user_books, class_name: UserBook
   has_many :books, through: :user_books
   has_many :events
 
