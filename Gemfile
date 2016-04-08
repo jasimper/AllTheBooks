@@ -29,7 +29,7 @@ gem 'sidekiq'
 
 gem 'paranoia'
 
-gem 'will_paginate'
+gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
   gem 'dotenv-rails'

@@ -2,10 +2,19 @@ class BooksController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
+  def search
+  end
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    if params[:search].present?
+      @books = Book.search(params[:search]).paginate(page: params[:page], per_page: 6)
+      if !@books.present?
+        redirect_to root_path, notice: 'There are no books containing the search term(s).'
+      end
+    else
+      @books = current_user.books.paginate(page: params[:page], per_page: 6)
+    end
   end
 
   # GET /books/1

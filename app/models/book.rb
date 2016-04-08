@@ -7,4 +7,16 @@ class Book < ActiveRecord::Base
 
   validates :author, :title, presence: true,
                              length: {in: 2..80}
+
+  validates :isbn, uniqueness: true
+
+
+
+  def self.search(search)
+    if search
+      where("author ILIKE ? OR title ILIKE ?", "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
 end

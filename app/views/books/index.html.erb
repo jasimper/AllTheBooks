@@ -15,16 +15,16 @@
         <li><%= book.title %></li>
       </ul>
       <div class="bookNavIcon">
-        <%= link_to icon('info-circle'), book %> &nbsp;&nbsp; <%= link_to icon('pencil'), edit_book_path(book) %> &nbsp;&nbsp;
+        <%= link_to icon('info-circle'), book, title: "More Info" %> &nbsp;&nbsp; <%= link_to icon('pencil'), edit_book_path(book), title: "Add Note" %> &nbsp;&nbsp;
 
-        <%= link_to icon('book'), has_read_user_book_path(book.user_books.first.id), method: :patch %>
-
-
+        <%= link_to icon('book'), has_read_user_book_path(book.user_books.first.id), { title: "Mark As Read", method: :patch } %>
         </div>
     </div>
   </div>
   <% end %>
+  <%= will_paginate @books %>
 </div>
+
 
 <%= link_to new_book_path do %>
   <div class="fakeButton"> Add a New Book</div>

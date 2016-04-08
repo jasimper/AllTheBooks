@@ -1,10 +1,15 @@
 <div class="header">
+  <div class="nav">
   <% if current_user %>
   <%= link_to root_path, class: 'home__link' do %>
   <%= icon('home') %>
   <% end %>
-    Welcome to your library, <%= current_user.name %> | <%= link_to '[ logout ]', '/logout' %>
+    Welcome to your library, <%= current_user.name %> | <%= link_to icon('sign-out'), '/logout', title: 'Log Out' %>
   <% else %>
     <%= link_to '[ login ]', '/login' %> | <%= link_to '[ signup ]', '/signup' %>
   <% end %>
+  </div>
+  <div class="searchForm">
+    <%= render partial: 'books/search' %>
+  </div>
 </div>

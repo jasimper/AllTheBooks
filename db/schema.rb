@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402013525) do
+ActiveRecord::Schema.define(version: 20160406160833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160402013525) do
   end
 
   add_index "books", ["genre_id", "format_id"], name: "index_books_on_genre_id_and_format_id", using: :btree
+  add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true, using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "event"
