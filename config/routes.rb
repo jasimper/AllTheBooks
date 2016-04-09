@@ -1,8 +1,22 @@
 Rails.application.routes.draw do
-  resources :books
   devise_for :users
 
   root 'books#index'
+
+  resources :books do
+    collection do
+      get 'search', action: 'search'
+    end
+    member do
+      get :add_book
+    end
+  end
+  
+  resources :user_books do
+    member do
+      patch :has_read
+    end
+  end
 
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
@@ -16,13 +30,6 @@ Rails.application.routes.draw do
   concern :noteable do
     resources :notes
   end
-
-  resources :user_books do
-    member do
-      patch :has_read
-    end
-  end
-
 
   resources :books, concerns: :noteable
   resources :events, concerns: :noteable

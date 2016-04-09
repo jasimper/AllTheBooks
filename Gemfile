@@ -31,6 +31,8 @@ gem 'paranoia'
 
 gem 'will_paginate', '~> 3.0.6'
 
+gem 'googlebooks', '~> 0.0.9'
+
 group :development, :test do
   gem 'dotenv-rails'
 

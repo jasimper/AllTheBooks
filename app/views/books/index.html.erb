@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Your Library</h1>
-
+<% if params[:search].present? %>
+  <h3>Your Search Results</h3>
+<% end %>
 <div class="bookshelf">
   <% @books.each do |book| %>
   <div class="book">
-    <% if book.user_books.first.has_read %>
+    <!-- not passing the correct id if the book is in another's library -->
+    <% if book.user_books.first.has_read %> 
     <div class="ribbon"><span>READ</span></div>
     <% end %>
     <div class="bookImage"><%= link_to image_tag(book.image_url), book %></div>
@@ -22,10 +24,17 @@
     </div>
   </div>
   <% end %>
-  <%= will_paginate @books %>
+  <div class="paginate">
+    <%= will_paginate @books %>
+  </div>
 </div>
 
-
-<%= link_to new_book_path do %>
-  <div class="fakeButton"> Add a New Book</div>
+<% if params[:search].present? %>
+  <%= link_to root_path do %>
+    <div class="fakeButton"> Back to Your Library</div>
+  <% end %>
+<% else %>
+  <%= link_to new_book_path do %>
+    <div class="fakeButton"> Add a New Book</div>
+  <% end %>
 <% end %>

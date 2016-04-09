@@ -15,7 +15,7 @@ class UserBooksController < ApplicationController
     @user_book.toggle!(:has_read)
     @user_book.update_attributes(user_books_params)
       respond_to do |format|
-      format.html { redirect_to books_url }
+      format.html { redirect_to request.referrer }
       format.json { render json: @book }
     end
   end

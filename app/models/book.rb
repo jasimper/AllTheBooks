@@ -11,12 +11,10 @@ class Book < ActiveRecord::Base
   validates :isbn, uniqueness: true
 
 
-
-  def self.search(search)
+  def self.library_search(search)
     if search
       where("author ILIKE ? OR title ILIKE ?", "%#{search}%", "%#{search}%")
-    else
-      scoped
+
     end
   end
 end

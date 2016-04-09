@@ -65,7 +65,8 @@
   text-align: center;
 }
 .bookshelf {
-  height: 520px;
+  height: 560px;
+  // text-align: center;
 }
 .book {
   display: inline-block;
@@ -75,6 +76,7 @@
   border: 1px solid #EEEEEE;
   margin: 10px;
   padding: 10px 5px;
+  text-align: left;
   @media all and (max-width: $break-l) {
     width: 45%;
   }

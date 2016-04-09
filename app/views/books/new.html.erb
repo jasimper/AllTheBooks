@@ -1,5 +1,11 @@
 <h1>New Book</h1>
 
+<%= form_tag(search_books_path, method: "get", action: "search") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search By ISBN, Title, or Author" %>
+<%= submit_tag "Search", name: nil %>
+<% end %>
+
+
 <%= render 'form' %>
 
 <%= link_to 'Back', books_path %>
