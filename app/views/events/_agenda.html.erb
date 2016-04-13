@@ -1,0 +1,9 @@
+<div class="agenda">
+  <%  @events.each do |e| %>
+  <div>
+    <%= e.release_date.strftime("%B %e %Y") %>
+    <%= e.event %>
+  </div>
+  <% end %>
+
+</div>

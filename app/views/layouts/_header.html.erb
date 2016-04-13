@@ -3,7 +3,7 @@
   <% if current_user %>
   <%= link_to icon('home', 'Your Library'), root_path  %>
   <%= link_to icon('calendar', 'Release Calendar'), events_path %>
-  <%= link_to icon('sign-out', 'Sign Out'), '/logout', title: 'Log Out' %>
+  <%= link_to icon('sign-out', 'Sign Out'), '/logout' %>
   <% else %>
     <%= link_to '[ login ]', '/login' %> | <%= link_to '[ signup ]', '/signup' %>
   <% end %>

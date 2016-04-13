@@ -3,7 +3,9 @@ class EventsController < ApplicationController
 before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = current_user.events.all
+    @events = current_user.events.order('release_date ASC')
+    @partial = params[:view] || "calendar"
+
   end
 
   def show

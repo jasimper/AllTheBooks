@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  # before_filter :set_time_zone, if: :user_signed_in?
-  #
-  # private
-  #
-  #   def set_time_zone
-  #     Time.zone = current_user.time_zone
-  #   end
+  before_filter :set_week_start, if: :user_signed_in?
+
+  private
+
+    def set_week_start
+      Date.beginning_of_week = :sunday
+    end
 
   protected
 

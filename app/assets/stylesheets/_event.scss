@@ -1,6 +1,6 @@
 .calendar {
   padding-top: 20px;
-  height: 560px;
+  height: 550px;
 }
 .monthHeader {
   font-size: 1.5rem;
@@ -10,4 +10,13 @@
 }
 .addToCalendar {
   margin-top: 10px;
+}
+.calendarSwitcher {
+  padding-top: 20px;
+  text-align: center;
+  .fakeButton {
+    display: inline-block;
+    margin: 5px 20px;
+    width: 200px;
+  }
 }

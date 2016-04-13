@@ -1,16 +1,16 @@
-<div class="calendar">
-<%= month_calendar(attribute: :release_date, events: @events) do |date, events| %>
-  <%= date.day %>
-
-  <% events.each do |event| %>
-    <div>
-      <%= event.event %>
-    </div>
-  <% end %>
-<% end %>
+<div class="calendarSwitcher">
+  <%= link_to events_path(view: "calendar") do %>
+    <div class="fakeButton">Calendar View</div>
+    <% end %>
+  <%= link_to events_path(view: "agenda") do %>
+    <div class="fakeButton">Agenda View</div>
+  <%end %>
 </div>
+
+<%= render @partial %>
+
 <div class="addToCalendar">
   <%= link_to new_event_path do %>
-    <div class="fakeButton"> Add a Book Release</div>
+    <div class="fakeButton">Add a Book Release</div>
   <% end %>
 </div>
