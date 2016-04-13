@@ -3,8 +3,12 @@
   'base',
   'books',
   'header',
+  'event',
   'pagination',
-  'ribbon';
+  'ribbon',
+  'tooltip';
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+@import "simple_calendar";

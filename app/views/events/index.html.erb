@@ -1,0 +1,16 @@
+<div class="calendar">
+<%= month_calendar(attribute: :release_date, events: @events) do |date, events| %>
+  <%= date.day %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.event %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+<div class="addToCalendar">
+  <%= link_to new_event_path do %>
+    <div class="fakeButton"> Add a Book Release</div>
+  <% end %>
+</div>
