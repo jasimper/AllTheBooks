@@ -11,10 +11,12 @@ Rails.application.routes.draw do
       get :add_book
     end
   end
-  
+
   resources :user_books do
     member do
       patch :has_read
+      get :new_note
+      patch :add_note
     end
   end
 

@@ -1,54 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="bookShow">
+  <!-- not passing the correct id if the book is in another's library -->
+  <% if @book.library_book(current_user, @book).first.has_read %>
+  <div class="ribbon"><span>READ</span></div>
+  <% end %>
+  <div class="bookImage"><%= image_tag(@book.image_url) %></div>
+  <div class="bookInfo">
+    <ul>
+      <li><%= @book.author %></li>
+      <li><%= @book.title %></li>
+      <li><%= @book.pub_date %></li>
+      <li><%= @book.isbn %></li>
+      <li><%= @book.genre.genre %></li>
+      <li><%= @book.format.format %></li>
+      <% if @book.series %>
+      <li>Number in Series: <%= @book.series_num %></li>
+      <% end %>
+    </ul>
 
-<p>
-  <strong>ISBN:</strong>
-  <%= @book.isbn %>
-</p>
+  </div>
+  <div class="bookDescription">
+    <%= @book.description %>
+  </div>
+  <!-- need to figure out how to call notes -->
+  <div class="bookNotes">
+    <% @book.library_book(current_user, @book).first.notes.each do |n| %>
+      <%= n.info %>
+      <% end %>
+  </div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
-
-<p>
-  <strong>Publication date:</strong>
-  <%= @book.pub_date %>
-</p>
-
-<p>
-  <strong>Genre:</strong>
-  <%= @book.genre.genre %>
-</p>
-
-<p>
-  <strong>Format:</strong>
-  <%= @book.format.format %>
-</p>
-
-<p>
-  <strong>Image URL:</strong>
-  <%= image_tag @book.image_url %>
-</p>
-<% if @book.series %>
-<p>
-  <strong>Series?:</strong>
-  <%= @book.series %>
-</p>
-
-<p>
-  <strong>Number in Series:</strong>
-  <%= @book.series_num %>
-</p>
-<% end %>
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+  <%= link_to 'Edit', edit_book_path(@book) %> |
+  <%= link_to 'Back', books_path %>
+</div>

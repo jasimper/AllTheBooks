@@ -4,7 +4,7 @@
 
   <% events.each do |event| %>
     <div>
-      <%= event.event %>
+      <%= link_to event.event, event_path(event) %>
     </div>
   <% end %>
 <% end %>

@@ -1,13 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <% if params[:search].present? %>
   <h3>Your Search Results</h3>
 <% end %>
 <div class="bookshelf">
   <% @books.each do |book| %>
   <div class="book">
-    <!-- not passing the correct id if the book is in another's library -->
-    <% if book.user_books.first.has_read %> 
+    <!-- not passing the correct id if the book is in another's library
+    passing the user_book.id of first record for specific book -->
+    <% if book.library_book(current_user, book).first.has_read %>
     <div class="ribbon"><span>READ</span></div>
     <% end %>
     <div class="bookImage"><%= link_to image_tag(book.image_url), book %></div>
@@ -17,9 +16,10 @@
         <li><%= book.title %></li>
       </ul>
       <div class="bookNavIcon">
-        <%= link_to icon('info-circle'), book, title: "More Info" %> &nbsp;&nbsp; <%= link_to icon('pencil'), edit_book_path(book), title: "Add Note" %> &nbsp;&nbsp;
+        <%= link_to icon('info-circle'), book, title: "More Info" %> &nbsp;&nbsp;
+        <%= link_to icon('pencil'), new_note_user_book_path(book.library_book(current_user, book).first.id), title: "Add Note" %> &nbsp;&nbsp;
 
-        <%= link_to icon('book'), has_read_user_book_path(book.user_books.first.id), { title: "Mark As Read", method: :patch } %>
+        <%= link_to icon('book'), has_read_user_book_path(book.library_book(current_user, book).first.id), { title: "Mark As Read", method: :patch } %>
         </div>
     </div>
   </div>

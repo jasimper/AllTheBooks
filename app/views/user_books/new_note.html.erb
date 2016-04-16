@@ -1,0 +1,24 @@
+<div class="form">
+  <%= form_for @user_book, url: {action: "add_note"} do |f| %>
+  <% if @user_book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_book.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+      <% @user_book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.fields_for :notes do |n| %>
+      <%= n.label :info %> <br>
+      <%= n.text_area :info %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Save Note to Book'%>
+  </div>
+<% end %>
+</div>

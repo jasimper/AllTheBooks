@@ -12,15 +12,20 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   end
 
   def new
-    @event = Event.new params[:event] ? event_params : {}
+    @event = current_user.events.new
+    @event.notes.build
+
   end
 
   def edit
+    if !@event.notes.present?
+      @event.notes.build
+    end
   end
 
 
   def create
-    @event = current_user.events.new(event_params)
+    @event = current_user.events.create(event_params)
 
     respond_to do |format|
       if @event.save
@@ -35,7 +40,7 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def update
     respond_to do |format|
-      if @event.update(event_params)
+      if @event.update_attributes(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -55,10 +60,10 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   private
     def set_event
-      @event = Event.find(params[:id])
+      @event = current_user.events.find(params[:id])
     end
 
     def event_params
-      params.require(:event).permit(:event, :release_date)
+      params.require(:event).permit(:event, :release_date, notes_attributes: [:id, :noteable_id, :noteable_type, :info])
     end
 end

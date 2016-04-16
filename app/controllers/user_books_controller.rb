@@ -1,17 +1,21 @@
 class UserBooksController < ApplicationController
+  before_action :set_user_book, only: [:new_note, :add_note, :has_read]
 
 
-  # def update
-  #   @user_book = UserBooks.find(params[:id])
-  #   if @user_book.update_attributes(user_books_params)
-  #     redirect_to books_path
-  #   else
-  #     redirect_to root_path
-  #   end
-  # end
+  def new_note
+    @user_book.notes.build
+  end
+
+  def add_note
+    respond_to do |format|
+      if @user_book.update_attributes(book_notes_params)
+        format.html { redirect_to root_path }
+        format.json { render json: @book }
+      end
+    end
+  end
 
   def has_read
-    @user_book = current_user.user_books.find(params[:id])
     @user_book.toggle!(:has_read)
     @user_book.update_attributes(user_books_params)
       respond_to do |format|
@@ -20,9 +24,19 @@ class UserBooksController < ApplicationController
     end
   end
 
+  def update
+  end
+
 private
 
+  def set_user_book
+    @user_book = UserBook.find(params[:id])
+  end
+
   def user_books_params
-    params.permit(:has_read)
+    params.permit(user_books_attributes: [:has_read])
+  end
+  def book_notes_params
+    params.require(:user_book).permit(notes_attributes: [:id, :noteable_id, :noteable_type, :info])
   end
 end

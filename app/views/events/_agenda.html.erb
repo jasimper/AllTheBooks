@@ -3,6 +3,7 @@
   <div>
     <%= e.release_date.strftime("%B %e %Y") %>
     <%= e.event %>
+    <%= link_to "show event", event_path(e) %>
   </div>
   <% end %>
 

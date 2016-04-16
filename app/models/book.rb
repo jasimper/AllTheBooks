@@ -17,4 +17,8 @@ class Book < ActiveRecord::Base
 
     end
   end
+
+  def library_book(current_user, book)
+    UserBook.where("user_id = ? AND book_id = ?", current_user.id, book.id)
+  end
 end

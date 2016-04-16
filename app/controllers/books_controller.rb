@@ -13,13 +13,14 @@ class BooksController < ApplicationController
   end
 
   def index
+    @user = current_user
     if params[:search].present?
       @books = current_user.books.library_search(params[:search]).paginate(page: params[:page], per_page: 6)
       if !@books.present?
         redirect_to root_path, notice: 'There are no books containing the search term(s).'
       end
     else
-      @books = current_user.books.paginate(page: params[:page], per_page: 6)
+      @books = @user.books.paginate(page: params[:page], per_page: 6).order('id DESC')
     end
   end
 
@@ -63,9 +64,15 @@ class BooksController < ApplicationController
 
   def add_book
     # need to add validation so a combo of user/book cannot be added twice
-    @book.user_books.create!(user_id: current_user.id)
+    @book.user_books.create(user_id: current_user.id)
     respond_to do |format|
-      format.html { redirect_to root_path }
+      if @book.save
+        format.html { redirect_to root_path, notice: 'Book was successfully added to your library.' }
+        format.json { render :index, status: :success}
+      else
+        format.html { redirect_to request.referrer, notice: 'Book could not be added. Is it already in your library?' }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -79,12 +86,12 @@ class BooksController < ApplicationController
 
   private
     def set_book
-      @book = Book.find(params[:id])
+      @book = current_user.books.find(params[:id])
     end
 
     def book_params
       params.require(:book).permit(:isbn, :author, :title, :description, :pub_date, :genre_id, :format_id, :image_url, :series, :series_num)
     end
 
-    
+
 end

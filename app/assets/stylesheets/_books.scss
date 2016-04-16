@@ -87,6 +87,24 @@
     margin: 10px auto;
   }
 }
+.bookShow {
+  position: relative;
+  width: 80%;
+  background-color: #FBFBFB;
+  border: 1px solid #EEEEEE;
+  margin: 10px auto;
+  padding: 10px 5px;
+  text-align: left;
+  @media all and (max-width: $break-m) {
+    display: block;
+    width: 95%;
+    text-align: center;
+    margin: 10px auto;
+  }
+}
+.bookDescription {
+  padding: 20px;
+}
 .bookImage {
   display: inline-block;
   position: relative;

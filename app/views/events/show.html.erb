@@ -1,0 +1,7 @@
+<%= @event.event %>
+<%= @event.release_date.strftime("%B %e %Y") %>
+<% @event.notes.each do |n| %>
+  <%= n.info %>
+<% end %>
+
+<%= link_to 'Edit', edit_event_path(@event) %>

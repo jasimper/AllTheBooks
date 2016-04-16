@@ -20,6 +20,12 @@
     <%= f.label :release_date %><br>
     <%= f.date_field :release_date %>
   </div>
+  <div class="field">
+    <%= f.fields_for :notes do |n| %>
+      <%= n.label :info %> <br>
+      <%= n.text_area :info %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit 'Save to Calendar'%>
   </div>
