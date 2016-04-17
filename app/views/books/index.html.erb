@@ -4,15 +4,13 @@
 <div class="bookshelf">
   <% @books.each do |book| %>
   <div class="book">
-    <!-- not passing the correct id if the book is in another's library
-    passing the user_book.id of first record for specific book -->
     <% if book.library_book(current_user, book).first.has_read %>
     <div class="ribbon"><span>READ</span></div>
     <% end %>
-    <div class="bookImage"><%= link_to image_tag(book.image_url), book %></div>
+    <div class="bookImage"><%= link_to image_tag(book.image_link), book %></div>
     <div class="bookInfo">
       <ul>
-        <li><%= book.author %></li>
+        <li><%= book.authors %></li>
         <li><%= book.title %></li>
       </ul>
       <div class="bookNavIcon">

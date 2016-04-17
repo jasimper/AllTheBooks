@@ -3,7 +3,11 @@ class UserBooksController < ApplicationController
 
 
   def new_note
-    @user_book.notes.build
+    if @user_book.notes.present?
+
+    else
+      @user_book.notes.build
+    end
   end
 
   def add_note

@@ -2,12 +2,12 @@
   <% @books.each do |book| %>
 
   <div class="book">
-    <div class="bookImage"><%= image_tag(book.image_url) %></div>
+    <div class="bookImage"><%= image_tag(book.image_link) %></div>
     <div class="bookInfo">
       <ul>
-        <li><%= book.author %></li>
+        <li><%= book.authors %></li>
         <li><%= book.title %></li>
-        <li><%= book.pub_date %></li>
+        <li><%= book.published_date %></li>
       </ul>
       <div class="bookNavIcon">
         <%= link_to icon('plus'), add_book_book_path(book), data: { confirm: 'Are you sure?'} %>

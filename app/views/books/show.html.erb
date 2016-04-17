@@ -1,19 +1,22 @@
 <div class="bookShow">
-  <!-- not passing the correct id if the book is in another's library -->
   <% if @book.library_book(current_user, @book).first.has_read %>
   <div class="ribbon"><span>READ</span></div>
   <% end %>
-  <div class="bookImage"><%= image_tag(@book.image_url) %></div>
+  <div class="bookImage"><%= image_tag(@book.image_link) %></div>
   <div class="bookInfo">
     <ul>
-      <li><%= @book.author %></li>
+      <li><%= @book.authors %></li>
       <li><%= @book.title %></li>
-      <li><%= @book.pub_date %></li>
+      <li><%= @book.published_date %></li>
       <li><%= @book.isbn %></li>
+      <% unless @book.genre.blank? %>
       <li><%= @book.genre.genre %></li>
+      <% end %>
+      <% unless @book.format.blank? %>
       <li><%= @book.format.format %></li>
+      <% end %>
       <% if @book.series %>
-      <li>Number in Series: <%= @book.series_num %></li>
+      <li>Number in Series: <%= @book.series_number %></li>
       <% end %>
     </ul>
 

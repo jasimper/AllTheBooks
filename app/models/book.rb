@@ -5,15 +5,19 @@ class Book < ActiveRecord::Base
   belongs_to :format
 
 
-  validates :author, :title, presence: true,
-                             length: {in: 2..80}
+  validates :authors, :title, presence: true,
+                             length: {in: 1..80}
 
-  validates :isbn, uniqueness: true
+
+  # erroring if blank saying isbn is already taken
+  validates :isbn, uniqueness: true, allow_blank: true, allow_nil: true
+
+  # need to validate series boolean and field
 
 
   def self.library_search(search)
     if search
-      where("author ILIKE ? OR title ILIKE ?", "%#{search}%", "%#{search}%")
+      where("authors ILIKE ? OR title ILIKE ?", "%#{search}%", "%#{search}%")
 
     end
   end

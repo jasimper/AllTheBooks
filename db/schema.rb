@@ -11,28 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415165846) do
+ActiveRecord::Schema.define(version: 20160417060202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
     t.string   "isbn"
-    t.string   "author",                      null: false
-    t.string   "title",                       null: false
+    t.string   "authors",                        null: false
+    t.string   "title",                          null: false
     t.text     "description"
-    t.date     "pub_date"
+    t.date     "published_date"
     t.integer  "genre_id"
     t.integer  "format_id"
-    t.string   "image_url"
-    t.boolean  "series",      default: false
-    t.float    "series_num"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "image_link"
+    t.boolean  "series",         default: false
+    t.float    "series_number"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "books", ["genre_id", "format_id"], name: "index_books_on_genre_id_and_format_id", using: :btree
-  add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true, using: :btree
+  add_index "books", ["isbn"], name: "index_books_on_isbn", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "event"

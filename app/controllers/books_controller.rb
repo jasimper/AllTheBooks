@@ -63,7 +63,6 @@ class BooksController < ApplicationController
   end
 
   def add_book
-    # need to add validation so a combo of user/book cannot be added twice
     @book.user_books.create(user_id: current_user.id)
     respond_to do |format|
       if @book.save
@@ -90,7 +89,7 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:isbn, :author, :title, :description, :pub_date, :genre_id, :format_id, :image_url, :series, :series_num)
+      params.require(:book).permit(:isbn, :authors, :title, :description, :published_date, :genre_id, :format_id, :image_link, :series, :series_number)
     end
 
 
