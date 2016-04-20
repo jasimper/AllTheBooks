@@ -13,7 +13,7 @@
   <% end %>
   <div class="field half">
     <%= f.label :isbn, 'ISBN' %><br>
-    <%= f.text_field :isbn, placeholder: 'Please enter ISBN with no dashes' %>
+    <%= f.text_field :isbn, placeholder: 'Please enter ISBN with no dashes', value: @book.isbn %>
   </div>
   <div class="field half">
     <%= f.label :authors %><br>

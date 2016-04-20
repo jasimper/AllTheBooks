@@ -13,7 +13,13 @@
         <% if book.id.is_a? Integer %>
           <%= link_to icon('plus'), add_book_book_path(book), data: { confirm: 'Are you sure?'} %>
         <% else %>
-          <%= link_to icon('plus'), new_book_path(book) %>
+        <% @book = book %>
+          <%= link_to icon('plus'), add_gbook_books_path(book: {isbn: book.isbn,
+                                                         authors: book.authors,
+                                                         title: book.title,
+                                                         description: book.description,
+                                                         published_date: book.published_date,
+                                                         image_link: book.image_link}), method: :post %>
         <% end %>
         <%= link_to icon('info-circle'), edit_book_path(book), title: "Add This Book" %>
       </div>

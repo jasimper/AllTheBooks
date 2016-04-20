@@ -10,7 +10,7 @@ class Book < ActiveRecord::Base
 
 
   # erroring if blank saying isbn is already taken
-  validates :isbn, uniqueness: true, allow_blank: true, allow_nil: true
+  validates :isbn, uniqueness: true, allow_blank: true, allow_nil: true, on: :save
 
   # need to validate series boolean and field
 
@@ -26,5 +26,5 @@ class Book < ActiveRecord::Base
     UserBook.where("user_id = ? AND book_id = ?", current_user.id, book.id)
   end
 
-  
+
 end

@@ -75,6 +75,22 @@ class BooksController < ApplicationController
     end
   end
 
+  def add_gbook
+
+    @book = current_user.books.create(book_params)
+
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to edit_book_path(@book), notice: 'Please add category and format, then save.' }
+        format.json { render :index, status: :success}
+      else
+        format.html { redirect_to request.referrer, notice: 'Book could not be added. Is it already in your library?' }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
   def destroy
     @book.destroy
     respond_to do |format|
@@ -91,6 +107,5 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:isbn, :authors, :title, :description, :published_date, :genre_id, :format_id, :image_link, :series, :series_number)
     end
-
 
 end
