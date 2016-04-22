@@ -7,8 +7,12 @@
     <ul>
       <li><%= @book.authors %></li>
       <li><%= @book.title %></li>
-      <li><%= @book.published_date %></li>
+      <% unless @book.published_date.blank? %>
+      <li><%= @book.published_date.strftime('%m/%d/%Y') %></li>
+      <% end %>
+      <% unless @book.isbn.blank? %>
       <li><%= @book.isbn %></li>
+      <% end %>
       <% unless @book.genre.blank? %>
       <li><%= @book.genre.genre %></li>
       <% end %>
@@ -16,7 +20,7 @@
       <li><%= @book.format.format %></li>
       <% end %>
       <% if @book.series %>
-      <li>Number in Series: <%= @book.series_number %></li>
+      <li>Number in Series: <%= @book.drop_trailing_zero(@book.series_number) %></li>
       <% end %>
     </ul>
 
@@ -30,7 +34,9 @@
       <%= n.info %>
       <% end %>
   </div>
-
+  <%= link_to icon('arrow-left', 'Back'), :back %>
+<% if current_user.admin? %>
   <%= link_to 'Edit', edit_book_path(@book) %> |
-  <%= link_to 'Back', books_path %>
+  <%= link_to 'Delete', @book, method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
 </div>

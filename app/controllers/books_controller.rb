@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_book, only: [:show, :edit, :update, :add_book, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def search
     @books = Book.library_search(params[:search]).paginate(page: params[:page], per_page: 6)
@@ -63,6 +63,7 @@ class BooksController < ApplicationController
   end
 
   def add_book
+    @book = Book.find(params[:id])
     @book.user_books.create(user_id: current_user.id)
     respond_to do |format|
       if @book.save
@@ -81,7 +82,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to edit_book_path(@book), notice: 'Please add category and format, then save.' }
+        format.html { redirect_to edit_book_path(@book), notice: 'Please add a genre and format, then save.' }
         format.json { render :index, status: :success}
       else
         format.html { redirect_to request.referrer, notice: 'Book could not be added. Is it already in your library?' }

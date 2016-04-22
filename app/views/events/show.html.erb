@@ -1,7 +1,13 @@
-<%= @event.event %>
-<%= @event.release_date.strftime("%B %e %Y") %>
-<% @event.notes.each do |n| %>
-  <%= n.info %>
-<% end %>
+<div class="eventShow">
+  <h3><%= @event.event %></h3>
 
-<%= link_to 'Edit', edit_event_path(@event) %>
+  Release Date: <%= @event.release_date.strftime("%B %e %Y") %><br>
+  <div class="note">
+    Note:
+    <% @event.notes.each do |n| %>
+      <%= n.info %>
+    <% end %>
+  </div>
+  <%= link_to icon('pencil', 'Edit'), edit_event_path(@event) %>
+</div>
+<%= link_to icon('arrow-left', 'Back'), events_path %>

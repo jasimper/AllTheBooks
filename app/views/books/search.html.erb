@@ -11,7 +11,7 @@
       </ul>
       <div class="bookNavIcon">
         <% if book.id.is_a? Integer %>
-          <%= link_to icon('plus'), add_book_book_path(book), data: { confirm: 'Are you sure?'} %>
+          <%= link_to icon('plus'), add_book_book_path(book), method: :post, title: "Add This Book to Your Library" %>
         <% else %>
         <% @book = book %>
           <%= link_to icon('plus'), add_gbook_books_path(book: {isbn: book.isbn,
@@ -19,16 +19,17 @@
                                                          title: book.title,
                                                          description: book.description,
                                                          published_date: book.published_date,
-                                                         image_link: book.image_link}), method: :post %>
+                                                         image_link: book.image_link}),
+                                                         method: :post,
+                                                         title: "Add This Book to Your Library" %>
         <% end %>
-        <%= link_to icon('info-circle'), edit_book_path(book), title: "Add This Book" %>
       </div>
     </div>
 
   </div>
   <% end %>
   <div class="bookSearchAgain">
-    <p>If this is not the book you're looking for, try the search again with more specific information, like the books ISBN or enter your book's information manually.</p>
+    <p>If this is not the book you're looking for, try the search again with more specific information, like the book's ISBN or enter your book's information manually.</p>
       <div class="form">
         <%= form_tag(search_books_path, method: "get", action: "search") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search By ISBN, Title, or Author" %>

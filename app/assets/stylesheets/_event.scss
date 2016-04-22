@@ -1,5 +1,5 @@
 .calendar {
-  height: 550px;
+  // height: 550px;
 }
 .monthHeader {
   font-size: 1.5rem;
@@ -18,4 +18,15 @@
     margin: 5px 20px;
     width: 200px;
   }
+}
+.eventShow {
+  width: 40%;
+  background-color: #FBFBFB;
+  border: 1px solid #EEEEEE;
+  margin: 10px;
+  padding: 10px 10px;
+  text-align: left;
+}
+.note {
+  padding: 10px 0;
 }

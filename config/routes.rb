@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       post 'add_gbook', action: 'add_gbook'
     end
     member do
-      get :add_book
+      post :add_book
     end
   end
 
