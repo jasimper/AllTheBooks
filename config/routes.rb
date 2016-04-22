@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   resources :books do
     collection do
       get 'search', action: 'search'
+      post 'add_gbook', action: 'add_gbook'
     end
     member do
-      get :add_book
+      post :add_book
     end
   end
 

@@ -15,13 +15,27 @@
   font-size: 1.2rem;
   line-height: 2.5rem;
   vertical-align: middle;
+  @media all and (max-width: $break-m) {
+    width: 25%;
+  }
   a {
     padding-right: 10px;
     font-size: 1rem;
+    @media all and (max-width: $break-l) {
+      font-size: 0.9rem;
+    }
+    @media all and (max-width: $break-m) {
+      font-size: 0rem;
+    }
   }
   i {
     font-size: 1.5rem;
-
+    @media all and (max-width: $break-l) {
+      font-size: 1.3rem;
+    }
+    @media all and (max-width: $break-m) {
+      font-size: 1.2rem;
+    }
   }
 }
 .searchForm {
@@ -31,6 +45,9 @@
   right: 0;
   padding-right: 10px;
   text-align: right;
+  @media all and (max-width: $break-m) {
+    width: 74%;
+  }
   input {
     height: 2rem;
     border-left-width: thick;
