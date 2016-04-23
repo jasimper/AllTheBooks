@@ -53,6 +53,9 @@
   </div>
   <div class="actions">
     <%= f.submit 'Save Book' %>
+    <%= link_to @book, method: :delete, data: {confirm: 'Are you sure?'} do %>
+      <div class="fakeButton">Cancel</div>
+    <% end %>
   </div>
 <% end %>
 </div>

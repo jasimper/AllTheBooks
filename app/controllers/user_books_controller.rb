@@ -1,5 +1,5 @@
 class UserBooksController < ApplicationController
-  before_action :set_user_book, only: [:new_note, :add_note, :has_read]
+  before_action :set_user_book, only: [:new_note, :add_note, :has_read, :destroy]
 
 
   def new_note
@@ -15,6 +15,9 @@ class UserBooksController < ApplicationController
       if @user_book.update_attributes(book_notes_params)
         format.html { redirect_to root_path }
         format.json { render json: @book }
+      else
+        format.html { render :new_note }
+        format.json { render json: @user_book.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -29,6 +32,14 @@ class UserBooksController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
+    @user_book.destroy
+    respond_to do |format|
+      format.html { redirect_to books_url, notice: 'Book was successfully removed from your library.' }
+      format.json { head :no_content }
+    end
   end
 
 private

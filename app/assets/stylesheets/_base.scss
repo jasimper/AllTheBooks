@@ -10,9 +10,15 @@ html {
   width: 90%;
   padding: 50px 10px 10px 10px;
   margin: 20px auto;
+  @media all and (max-width: $break-s) {
+    padding: 100px 10px 10px 10px;
+  }
+  @media all and (max-width: $break-xs) {
+    width: 100%;
+  }
 }
 a {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-decoration: none;
   color: #4C4C4C;
   &:hover {
@@ -21,4 +27,7 @@ a {
   @media all and (max-width: $break-m) {
     font-size: 1rem;
   }
+}
+i {
+  font-size: 1.5rem;
 }

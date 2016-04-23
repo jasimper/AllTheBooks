@@ -6,7 +6,7 @@ class Book < ActiveRecord::Base
 
 
   validates :authors, :title, presence: true,
-                             length: {in: 1..80}
+                             length: {in: 1..150}
 
 
   validates :isbn, uniqueness: true, allow_blank: true, allow_nil: true,

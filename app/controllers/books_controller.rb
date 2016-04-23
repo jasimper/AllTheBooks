@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def search
+    session[:search_results] = request.url
     @books = Book.library_search(params[:search]).paginate(page: params[:page], per_page: 6)
     if !@books.present?
       @books = GoogleBooks.search(params[:search], {:count => 10})
@@ -77,9 +78,7 @@ class BooksController < ApplicationController
   end
 
   def add_gbook
-
     @book = current_user.books.create(book_params)
-
     respond_to do |format|
       if @book.save
         format.html { redirect_to edit_book_path(@book), notice: 'Please add a genre and format, then save.' }
@@ -95,7 +94,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+      format.html { redirect_to session[:search_results], notice: 'Book was successfully removed.' }
       format.json { head :no_content }
     end
   end

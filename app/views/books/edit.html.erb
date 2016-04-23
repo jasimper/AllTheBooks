@@ -1,6 +1,8 @@
-<h1>Editing Book</h1>
+<div class="mistake">
+  Not the book you were looking for?
+  <%= link_to @book, method: :delete, data: {confirm: 'Are you sure?'} do %>
+    <div class="fakeButton">Remove From Library</div>
+  <% end %>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>

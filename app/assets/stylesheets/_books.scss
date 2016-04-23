@@ -54,7 +54,8 @@
 .form input[type=submit] {
   border-width: 1px;
   margin: 5px 0;
-  width: 300px;
+  padding: 5px 20px;
+  // width: 300px;
   background-color: #669966;
   color: #FFFFFF;
   &:hover {
@@ -117,7 +118,6 @@
   @media all and (max-width: $break-m) {
     display: block;
     width: 95%;
-    text-align: center;
     margin: 10px auto;
   }
 }
@@ -141,6 +141,7 @@
   display: inline-block;
   width: 50%;
   height: 200px;
+  font-size: 0.9rem;
   vertical-align: middle;
   padding: 10px;
   ul {
@@ -152,6 +153,16 @@
   li {
     padding: 5px 0;
   }
+  a {
+    font-size: 1rem;
+  }
+  @media all and (max-width: $break-m) {
+    text-align: left;
+  }
+}
+.bookOverflow {
+  max-height: 80px;
+  overflow-y: hidden;
 }
 .bookNavIcon {
   height: 50px;
@@ -160,22 +171,49 @@
   font-size: 1.3rem;
   padding-top: 20px;
   a {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   }
 }
+.bookInfoIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 8px;
+  width: 30px;
+}
+.bottomNavLeft {
+  display: inline-block;
+  text-align: left;
+  width: 30%;
+}
+.bottomNavCenter {
+  display: inline-block;
+  text-align: center;;
+  width: 30%;
+}
+.bottomNavRight {
+  display: inline-block;
+  text-align: right;
+  width: 30%;
+}
+.mistake {
+  border: solid 1px #9A9A9A;
+  padding: 20px;
+}
 .fakeButton {
+  display: inline-block;
   text-align: center;
   border: solid 1px #9A9A9A;
   border-radius: 5px;
   margin: 5px auto;
-  padding: 5px 0;
-  width: 300px;
+  padding: 5px 20px;
+  // width: 300px;
   background-color: #669966;
   color: #FFFFFF;
   &:hover {
     border-color: #808080;
   }
   @media all and (max-width: $break-m) {
-    width: 240px;
+    // width: 240px;
   }
 }

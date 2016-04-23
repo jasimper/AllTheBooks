@@ -7,6 +7,9 @@
   left: 0;
   margin-bottom: 10px;
   padding: 5px 10px 0 10px;
+  @media all and (max-width: $break-s) {
+    height: 100px;
+  }
 }
 .nav {
   display: inline-block;
@@ -18,6 +21,12 @@
   @media all and (max-width: $break-m) {
     width: 25%;
   }
+  @media all and (max-width: $break-s) {
+    width: 100%;
+    text-align: center;
+  }
+  @media all and (max-width: $break-xs) {
+  }
   a {
     padding-right: 10px;
     font-size: 1rem;
@@ -27,6 +36,12 @@
     @media all and (max-width: $break-m) {
       font-size: 0rem;
     }
+    @media all and (max-width: $break-s) {
+      font-size: 0.9rem;
+    }
+    @media all and (max-width: $break-xs) {
+      font-size: 0.8rem;
+    }
   }
   i {
     font-size: 1.5rem;
@@ -35,6 +50,9 @@
     }
     @media all and (max-width: $break-m) {
       font-size: 1.2rem;
+    }
+    @media all and (max-width: $break-xs) {
+      font-size: 1rem;
     }
   }
 }
@@ -48,6 +66,11 @@
   @media all and (max-width: $break-m) {
     width: 74%;
   }
+  @media all and (max-width: $break-s) {
+    width: 100%;
+    position: relative;
+    text-align: center;
+  }
   input {
     height: 2rem;
     border-left-width: thick;
@@ -58,6 +81,9 @@
   input[type='text'] {
     width: 60%;
     padding-left: 5px;
+    @media all and (max-width: $break-s) {
+      width: 55%;
+    }
   }
   input[type=submit] {
     border-width: 1px;
