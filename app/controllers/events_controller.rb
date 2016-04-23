@@ -9,15 +9,18 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    authorize! :read, @event
   end
 
   def new
     @event = current_user.events.new
+    authorize! :read, @event
     @event.notes.build
 
   end
 
   def edit
+    authorize! :read, @event
     if !@event.notes.present?
       @event.notes.build
     end
@@ -26,7 +29,7 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def create
     @event = current_user.events.create(event_params)
-
+    authorize! :create, @event
     respond_to do |format|
       if @event.save
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
@@ -39,6 +42,7 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   end
 
   def update
+    authorize! :update, @event
     respond_to do |format|
       if @event.update_attributes(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -51,6 +55,7 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
+    authorize! :destroy, @event
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'The Event was successfully destroyed.' }

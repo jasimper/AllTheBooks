@@ -3,6 +3,7 @@ class NotesController < ApplicationController
   # I am not nearly smart enough to come up with this on my own.
 
   def create
+    authorize! :create, @note
       @noteable = find_noteable
       @note = @noteable.notes.build(note_params)
       if @note.save

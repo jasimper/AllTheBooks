@@ -1,9 +1,9 @@
 <div class="header">
   <div class="nav">
   <% if current_user %>
-  <%= link_to icon('home', 'Your Library'), root_path  %>
-  <%= link_to icon('calendar', 'Release Calendar'), events_path %>
-  <%= link_to icon('sign-out', 'Sign Out'), '/logout' %>
+  <%= link_to icon('home', 'Your Library'), root_path, title: 'Your Library'  %>
+  <%= link_to icon('calendar', 'Release Calendar'), events_path, title: 'New Release Calendar' %>
+  <%= link_to icon('sign-out', 'Sign Out'), '/logout', title: 'Sign Out' %>
   <% else %>
     <%= link_to '[ login ]', '/login' %> | <%= link_to '[ signup ]', '/signup' %>
   <% end %>
