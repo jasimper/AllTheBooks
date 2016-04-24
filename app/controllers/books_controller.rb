@@ -36,7 +36,7 @@
   end
 
   def edit
-    authorize! :read, @book
+    authorize! :update, @book
   end
 
   def create
@@ -55,6 +55,7 @@
 
   def update
     authorize! :update, @book
+    @book.set_edittable
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
@@ -111,7 +112,7 @@
     end
 
     def book_params
-      params.require(:book).permit(:isbn, :authors, :title, :description, :published_date, :genre_id, :format_id, :image_link, :series, :series_number)
+      params.require(:book).permit(:isbn, :authors, :title, :description, :published_date, :genre_id, :format_id, :image_link, :series, :series_number, :edittable)
     end
 
 end

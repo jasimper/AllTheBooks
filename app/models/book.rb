@@ -4,7 +4,6 @@ class Book < ActiveRecord::Base
   belongs_to :genre
   belongs_to :format
 
-
   validates :authors, :title, presence: true,
                              length: {in: 1..150}
 
@@ -13,7 +12,6 @@ class Book < ActiveRecord::Base
                    length: {in: 0..16}
 
   # need to validate series boolean and field
-
 
   def self.library_search(search)
     if search
@@ -29,6 +27,11 @@ class Book < ActiveRecord::Base
   def drop_trailing_zero(num)
     i, f = num.to_i, num.to_f
     i == f ? i : f
+  end
+
+
+  def set_edittable
+    self.edittable = false
   end
 
 

@@ -32,7 +32,7 @@ class AccessPolicy
       end
       can [:create, :read], Book
       can [:update, :destroy], Book do |book, user|
-        book.library_book(user, book).first.user_id == user.id
+        book.library_book(user, book).first.user_id == user.id && book.edittable?
       end
       can :manage, Event do |event, user|
         event.user_id == user.id
