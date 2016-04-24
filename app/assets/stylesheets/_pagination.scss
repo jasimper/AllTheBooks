@@ -14,8 +14,9 @@
   }
   .current{
     font-style: normal;
-    font-weight: bold;
-    background-color: #CCCCCC;
+    font-weight: 300;
+    background-color: #669966;
+    color: #FFFFFF;
     display: inline-block;
     width: 1.4em;
     height: 1.4em;
@@ -23,7 +24,10 @@
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
     border-radius: 1em;
-    text-shadow: rgba(white, .8) 1px 1px 1px;
+    // text-shadow: rgba(white, .8) 1px 1px 1px;
+    &:hover, &:focus {
+      background-color: #CCCCCC;
+    }
   }
   a {
     text-decoration: none;

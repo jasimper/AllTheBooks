@@ -19,7 +19,8 @@
                                                          title: book.title,
                                                          description: book.description,
                                                          published_date: book.published_date,
-                                                         image_link: book.image_link}),
+                                                         image_link: book.image_link,
+                                                         edittable: true }),
                                                          method: :post,
                                                          title: "Add This Book to Your Library" %>
         <% end %>
@@ -28,16 +29,19 @@
 
   </div>
   <% end %>
-  <div class="bookSearchAgain">
-    <p>If this is not the book you're looking for, try the search again with more specific information, like the book's ISBN or enter your book's information manually.</p>
+  <div class="bookSearchAgain form">
+    <p>If the book you're looking for isn't llisted, try the search again with more specific information, like the book's ISBN or enter your book's information manually.</p>
       <div class="form">
         <%= form_tag(search_books_path, method: "get", action: "search") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search By ISBN, Title, or Author" %>
         <%= submit_tag "Search", name: nil %>
         <% end %>
       </div>
-    <%= link_to new_book_path do %>
-      <div class="fakeButton"> Add Book Manually</div>
-    <% end %>
+      <div>
+        or<br>
+        <%= link_to new_book_path do %>
+          <div class="fakeButton"> Add Book Manually</div>
+        <% end %>
+      </div>
   </div>
 </div>

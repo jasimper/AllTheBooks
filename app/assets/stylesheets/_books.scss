@@ -13,6 +13,7 @@
   margin: 10px 0;
 }
 .form {
+  display: inline-block;
   width: 60%;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -24,6 +25,7 @@
   border-top-color: #9A9A9A;
   border-right-color: #D6D6D6;
   border-bottom-color: #D6D6D6;
+  margin-bottom: 10px;
 }
 .form label {
   padding-bottom: 15px;
@@ -73,12 +75,13 @@
   display: inline-block;
   position: relative;
   vertical-align: top;
-  width: 45%;
-  margin: 20px;
-  padding: 5px;
+  width: 50%;
+  margin: 10px 20px;
+  padding: 10px;
   text-align: center;
   p {
     text-align: left;
+    margin-top: 0;
   }
   .form {
     margin: 0 auto;
@@ -197,8 +200,14 @@
   width: 30%;
 }
 .mistake {
+  display: inline-block;
+  width: 30%;
+  background-color: #F8F8F8;
   border: solid 1px #9A9A9A;
   padding: 20px;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 10px;
 }
 .fakeButton {
   display: inline-block;

@@ -13,6 +13,20 @@ gem 'font-awesome-sass', '~> 4.5.0'
 
 gem 'uglifier', '>= 1.3.0'
 
+gem 'devise'
+
+gem 'access-granted', '~> 1.0.0'
+
+gem 'googlebooks', '~> 0.0.9'
+
+gem 'puma'
+
+gem 'sidekiq'
+
+gem 'simple_calendar'
+
+gem 'will_paginate', '~> 3.0.6'
+
 gem 'jquery-rails', '>= 3.0.0'
 
 gem 'jquery-ui-rails'
@@ -21,19 +35,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'devise'
-
-gem 'simple_calendar'
-
-gem 'puma'
-
-gem 'sidekiq'
-
-gem 'paranoia'
-
-gem 'will_paginate', '~> 3.0.6'
-
-gem 'googlebooks', '~> 0.0.9'
 
 group :development, :test do
   gem 'dotenv-rails'

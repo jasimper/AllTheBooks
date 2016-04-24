@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+ class BooksController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
@@ -26,19 +26,22 @@ class BooksController < ApplicationController
   end
 
   def show
+    authorize! :read, @book
+
   end
 
   def new
     @book = Book.new
+    authorize! :read, @book
   end
 
   def edit
-
+    authorize! :update, @book
   end
 
   def create
+    authorize! :create, @book
     @book = current_user.books.create(book_params)
-
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
@@ -51,7 +54,8 @@ class BooksController < ApplicationController
   end
 
   def update
-
+    authorize! :update, @book
+    @book.set_edittable
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
@@ -66,6 +70,7 @@ class BooksController < ApplicationController
   def add_book
     @book = Book.find(params[:id])
     @book.user_books.create(user_id: current_user.id)
+    authorize! :create, @book
     respond_to do |format|
       if @book.save
         format.html { redirect_to root_path, notice: 'Book was successfully added to your library.' }
@@ -79,6 +84,7 @@ class BooksController < ApplicationController
 
   def add_gbook
     @book = current_user.books.create(book_params)
+    authorize! :create, @book
     respond_to do |format|
       if @book.save
         format.html { redirect_to edit_book_path(@book), notice: 'Please add a genre and format, then save.' }
@@ -92,6 +98,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @book
     @book.destroy
     respond_to do |format|
       format.html { redirect_to session[:search_results], notice: 'Book was successfully removed.' }
@@ -105,7 +112,7 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:isbn, :authors, :title, :description, :published_date, :genre_id, :format_id, :image_link, :series, :series_number)
+      params.require(:book).permit(:isbn, :authors, :title, :description, :published_date, :genre_id, :format_id, :image_link, :series, :series_number, :edittable)
     end
 
 end
