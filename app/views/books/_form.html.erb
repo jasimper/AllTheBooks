@@ -53,8 +53,10 @@
   </div>
   <div class="actions">
     <%= f.submit 'Save Book' %>
-    <%= link_to @book, method: :delete, data: {confirm: 'Are you sure?'} do %>
-      <div class="fakeButton">Cancel</div>
+    <% if !current_page?(new_book_path) %>
+      <%= link_to @book, method: :delete, data: {confirm: 'Are you sure?'} do %>
+        <div class="fakeButton">Cancel</div>
+      <% end %>
     <% end %>
   </div>
 <% end %>
