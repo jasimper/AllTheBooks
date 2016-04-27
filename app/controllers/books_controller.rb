@@ -40,8 +40,8 @@
   end
 
   def create
-    authorize! :create, @book
     @book = current_user.books.create(book_params)
+    authorize! :create, @book
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }

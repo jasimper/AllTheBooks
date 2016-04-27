@@ -2,7 +2,7 @@
   <% if @book.library_book(current_user, @book).first.has_read %>
   <div class="ribbon"><span>READ</span></div>
   <% end %>
-  <div class="bookImage"><%= image_tag(@book.image_link) %></div>
+  <div class="bookImage"><%= image_tag(@book.bookcover) %></div>
   <div class="bookInfo">
     <ul>
       <li><%= @book.authors %></li>

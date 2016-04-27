@@ -17,7 +17,7 @@
     <% if book.library_book(current_user, book).first.has_read %>
     <div class="ribbon"><span>READ</span></div>
     <% end %>
-    <div class="bookImage"><%= link_to image_tag(book.image_link), book %></div>
+    <div class="bookImage"><%= link_to image_tag(book.bookcover), book %></div>
     <div class="bookInfo">
       <ul>
         <li class="bookOverflow"><%= link_to book.title, book %></li>

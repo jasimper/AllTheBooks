@@ -17,7 +17,6 @@ class Book < ActiveRecord::Base
   def self.library_search(search)
     if search
       where("authors ILIKE ? OR title ILIKE ? or isbn ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}")
-
     end
   end
 
@@ -35,5 +34,12 @@ class Book < ActiveRecord::Base
     self.edittable = false
   end
 
+  def bookcover
+    if self.image_link.blank?
+      "BookNotPictured.png"
+    else
+      self.image_link
+    end
+  end
 
 end
