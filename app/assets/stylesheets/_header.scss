@@ -27,33 +27,38 @@
   }
   @media all and (max-width: $break-xs) {
   }
-  a {
-    padding-right: 10px;
-    font-size: 1rem;
-    @media all and (max-width: $break-l) {
-      font-size: 0.9rem;
-    }
-    @media all and (max-width: $break-m) {
-      font-size: 0rem;
-    }
-    @media all and (max-width: $break-s) {
-      font-size: 0.9rem;
-    }
-    @media all and (max-width: $break-xs) {
-      font-size: 0.8rem;
-    }
+}
+.nav a {
+  display: inline-block;
+  padding-right: 10px;
+  font-size: 1.1rem;
+  z-index: 1;
+  span {
+    min-height: 35px;
   }
-  i {
-    font-size: 1.5rem;
-    @media all and (max-width: $break-l) {
-      font-size: 1.3rem;
-    }
-    @media all and (max-width: $break-m) {
-      font-size: 1.2rem;
-    }
-    @media all and (max-width: $break-xs) {
-      font-size: 1rem;
-    }
+  @media all and (max-width: $break-l) {
+    font-size: 0.9rem;
+  }
+  @media all and (max-width: $break-m) {
+    font-size: 0rem;
+  }
+  @media all and (max-width: $break-s) {
+    font-size: 0.9rem;
+  }
+  @media all and (max-width: $break-xs) {
+    font-size: 0.8rem;
+  }
+}
+.nav i {
+  font-size: 1.5rem;
+  @media all and (max-width: $break-l) {
+    font-size: 1.3rem;
+  }
+  @media all and (max-width: $break-m) {
+    font-size: 1.2rem;
+  }
+  @media all and (max-width: $break-xs) {
+    font-size: 1rem;
   }
 }
 .searchForm {

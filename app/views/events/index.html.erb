@@ -1,16 +1,25 @@
-<div class="calendarSwitcher">
-  <%= link_to events_path(view: "calendar") do %>
-    <div class="fakeButton">Calendar View</div>
+<div class="events">
+  <div>
+  <div class="addToCalendar">
+    <%= link_to new_event_path do %>
+      <div class="fakeButton">Add a Book Release</div>
     <% end %>
-  <%= link_to events_path(view: "agenda") do %>
-    <div class="fakeButton">Agenda View</div>
-  <%end %>
+  </div>
+  <div class="calendarSwitcher">
+    <%= link_to events_path(view: "calendar"), class: [assign_current( "events"), assign_current("calendar")] do %>
+      <div class="fakeButton">Calendar View</div>
+      <% end %>
+    <%= link_to events_path(view: "agenda"), class: assign_current("agenda") do %>
+      <div class="fakeButton">Agenda View</div>
+    <%end %>
+  </div>
 </div>
 
-<%= render @partial %>
+  <%= render @partial %>
 
-<div class="addToCalendar">
-  <%= link_to new_event_path do %>
-    <div class="fakeButton">Add a Book Release</div>
-  <% end %>
+  <div class="addToCalendar">
+    <%= link_to new_event_path do %>
+      <div class="fakeButton">Add a Book Release</div>
+    <% end %>
+  </div>
 </div>

@@ -1,5 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+
 html {
   box-sizing: border-box;
+}
+html, body {
+  font-family: 'Roboto Slab', Arial, serif;
+  font-size: 14px;
+  color: #282828;
 }
 *,
 *:before,
@@ -7,6 +14,8 @@ html {
   box-sizing: inherit;
 }
 .main {
+  min-height: 100%;
+  position: relative;
   width: 90%;
   padding: 50px 10px 10px 10px;
   margin: 20px auto;
@@ -23,9 +32,6 @@ a {
   color: #4C4C4C;
   &:hover {
     color: #669966;
-  }
-  @media all and (max-width: $break-m) {
-    font-size: 1rem;
   }
 }
 i {

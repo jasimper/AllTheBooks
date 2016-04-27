@@ -2,6 +2,16 @@
   <h3>Your Search Results</h3>
 <% end %>
 <div class="bookshelf">
+  <div class="book firstBook">
+    <p>Find a book to add to your library.</p>
+
+    <div class="form addSearchForm">
+      <%= form_tag(search_books_path, method: "get", action: "search") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search By ISBN or Author/Title" %>
+      <%= submit_tag "Search for Book to Add", name: nil %>
+      <% end %>
+    </div>
+  </div>
   <% @books.each do |book| %>
   <div class="book">
     <% if book.library_book(current_user, book).first.has_read %>

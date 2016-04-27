@@ -1,10 +1,17 @@
-<div class="agenda">
+<div class="agenda eventWrapper">
+  <% previous_date = nil %>
   <%  @events.each do |e| %>
   <div>
-    <%= e.release_date.strftime("%B %e %Y") %>
-    <%= e.event %>
-    <%= link_to "show event", event_path(e) %>
+    <div class="agendaDate">
+      <% if previous_date != e.release_date %>
+        <%= e.release_date.strftime("%B %e %Y")  %>
+      <% end %>
+    </div>
+    <div class="agendaInfo">
+      <%= e.event %> | 
+      <%= link_to "Show Event", event_path(e) %>
+      <% previous_date = e.release_date %>
+    </div>
   </div>
   <% end %>
-
 </div>

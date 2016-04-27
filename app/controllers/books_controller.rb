@@ -4,7 +4,7 @@
 
   def search
     session[:search_results] = request.url
-    @books = Book.library_search(params[:search]).paginate(page: params[:page], per_page: 6)
+    @books = Book.library_search(params[:search]).paginate(page: params[:page], per_page: 8)
     if !@books.present?
       @books = GoogleBooks.search(params[:search], {:count => 10})
       if !@books.present?
@@ -16,12 +16,12 @@
   def index
     @user = current_user
     if params[:search].present?
-      @books = current_user.books.library_search(params[:search]).paginate(page: params[:page], per_page: 6)
+      @books = current_user.books.library_search(params[:search]).paginate(page: params[:page], per_page: 8)
       if !@books.present?
         redirect_to root_path, notice: 'There are no books containing the search term(s).'
       end
     else
-      @books = @user.books.paginate(page: params[:page], per_page: 6).order('id DESC')
+      @books = @user.books.paginate(page: params[:page], per_page: 8).order('title ASC')
     end
   end
 

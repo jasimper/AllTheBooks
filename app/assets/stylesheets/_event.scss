@@ -1,3 +1,6 @@
+.events {
+  position: relative;
+}
 .calendar {
   // height: 550px;
 }
@@ -8,16 +11,57 @@
   }
 }
 .addToCalendar {
-  margin-top: 10px;
+  display: inline-block;
+
+  width: 30%;
+  vertical-align: bottom;
+  @media all and (max-width: $break-m) {
+    display: block;
+    width: 100%;
+  }
 }
 .calendarSwitcher {
-  padding-top: 20px;
-  text-align: center;
+  display: inline-block;
+  position: sticky;
+  right: 0;
+  top: 0;
+  width: 69.5%;
+  padding-top: 10px;
+  text-align: right;
+  @media all and (max-width: $break-m) {
+    display: block;
+    width: 100%;
+  }
+  @media all and (max-width: $break-xs) {
+    a {
+      font-size: 0.9rem;
+    }
+  }
   .fakeButton {
     display: inline-block;
-    margin: 5px 20px;
-    width: 200px;
+    margin: 0;
+    width: 170px;
+    background-color: #9A9A9A;
+    border: solid 1px #9A9A9A;
+    border-radius: 5px 5px 0 0;
+    @media all and (max-width: $break-s) {
+      width: 140px;
+    }
+    @media all and (max-width: $break-xs) {
+      width: 130px;
+      a {
+        font-size: 0.9rem;
+      }
+    }
   }
+  .current .fakeButton {
+    background-color: #669966;
+    border-bottom: solid 1px #669966;
+  }
+}
+.eventWrapper {
+  border: 1px solid #9A9A9A;
+  padding: 5px;
 }
 .eventShow {
   width: 40%;
@@ -29,4 +73,18 @@
 }
 .note {
   padding: 10px 0;
+}
+.agenda {
+  padding: 20px;
+  background-color: #FBFBFB;
+  div {
+    margin: 10px 0;
+  }
+}
+.agendaDate {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.agendaInfo {
+  padding-left: 20px;
 }
