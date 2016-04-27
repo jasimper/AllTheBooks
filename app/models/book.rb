@@ -12,6 +12,7 @@ class Book < ActiveRecord::Base
                    length: {in: 0..16}
 
   # need to validate series boolean and field
+  paginates_per 8
 
   def self.library_search(search)
     if search
