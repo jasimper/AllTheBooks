@@ -17,15 +17,19 @@ gem 'devise'
 
 gem 'access-granted', '~> 1.0.0'
 
+gem "administrate", "~> 0.2.0"
+
+gem "administrate-field-image"
+
 gem 'googlebooks', '~> 0.0.9'
+
+gem 'kaminari'
 
 gem 'puma'
 
 gem 'sidekiq'
 
 gem 'simple_calendar'
-
-gem 'will_paginate', '~> 3.0.6'
 
 gem 'jquery-rails', '>= 3.0.0'
 

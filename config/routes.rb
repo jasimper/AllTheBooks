@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    resources :users
+resources :user_books
+resources :books
+resources :events
+resources :formats
+resources :genres
+resources :notes
+
+    root to: "users#index"
+  end
+
   devise_for :users
 
   root 'books#index'
@@ -13,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user_books do
+  resources :user_books, except: [:index, :show, :new, :create, :edit] do
     member do
       patch :has_read
       get :new_note
