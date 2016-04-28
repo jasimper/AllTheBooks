@@ -8,4 +8,8 @@ class Event < ActiveRecord::Base
   def start_time
     release_date
   end
+
+  def self.not_past
+    self.where('release_date >= ?', Date.current)
+  end
 end

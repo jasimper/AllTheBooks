@@ -3,10 +3,11 @@
 
   Release Date: <%= @event.release_date.strftime("%B %e %Y") %><br>
   <div class="note">
-    Note:
-    <% @event.notes.each do |n| %>
-      <%= n.info %>
-    <% end %>
+    <p>Note:
+      <% @event.notes.each do |n| %>
+        <%= n.info %>
+      <% end %>
+    </p>  
   </div>
   <%= link_to icon('pencil', 'Edit'), edit_event_path(@event) %>
 </div>

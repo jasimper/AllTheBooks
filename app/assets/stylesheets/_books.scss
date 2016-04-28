@@ -26,6 +26,9 @@
   border-right-color: #D6D6D6;
   border-bottom-color: #D6D6D6;
   margin-bottom: 10px;
+  @media all and (max-width: $break-m) {
+    width: 90%;
+  }
 }
 .addSearchForm {
   width: 100%;
@@ -80,19 +83,24 @@
   display: inline-block;
   position: relative;
   vertical-align: top;
-  width: 50%;
+  width: 60%;
   margin: 10px 20px;
   padding: 10px;
   text-align: center;
-  p {
-    text-align: left;
-    margin-top: 0;
+  .instruct {
+
+  }
+  .searchArea {
+    text-align: center;
   }
   .form {
     margin: 0 auto;
-    padding: 10px;
+    padding: 15px 10px 0 10px;
+    width: 90%;
+    border: none;
     input[type=submit] {
-      width: 60%;
+      width: 75%;
+      margin: 10px 0 5px 0;
     }
   }
 }
@@ -121,11 +129,11 @@
   text-align: center;
 }
 .bookShow {
-  position: relative;
+  // position: relative;
   width: 80%;
   background-color: #FBFBFB;
   border: 1px solid #EEEEEE;
-  margin: 10px auto;
+  margin: 0 auto;
   padding: 10px 5px;
   text-align: left;
   @media all and (max-width: $break-m) {

@@ -16,5 +16,7 @@
     <%= yield %>
   </div>
 
+  <%= render 'layouts/footer' unless @skip_footer %>
+
 </body>
 </html>

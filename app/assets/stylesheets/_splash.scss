@@ -1,0 +1,52 @@
+.splash {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  img {
+    width: 500px;
+    @media all and (max-width: $break-l) {
+      width: 400px;
+    }
+    @media all and (max-width: $break-m) {
+      width: 300px;
+    }
+    @media all and (max-width: $break-s) {
+      width: 200px;
+    }
+  }
+  h1 {
+    font-size: 5rem;
+    color: #9A9A9A;
+    margin: -50px 0 0 0;
+    text-align: center;
+    @media all and (max-width: $break-l) {
+      font-size: 4rem;
+    }
+    @media all and (max-width: $break-m) {
+      font-size: 3rem;
+      margin: -25px 0 0 0;
+    }
+    @media all and (max-width: $break-s) {
+      font-size: 2rem;
+      margin: -15px 0 0 0;
+    }
+  }
+}
+.smallSplash {
+  display: block;
+  position: relative;
+  padding: 0 10px 0 0;
+  height: 145px;
+  text-align: right;
+  // vertical-align: bottom;
+  z-index: 1;
+  img {
+    width: 150px;
+  }
+  h1 {
+    font-size: 1.5rem;
+    color: #9A9A9A;
+    margin: -10px 0 0 0;
+  }
+}
