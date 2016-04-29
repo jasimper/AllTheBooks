@@ -18,14 +18,14 @@ html, body {
   min-height: 100%;
   position: relative;
   width: 90%;
-  padding: 50px 10px 10px 10px;
-  margin: 20px auto -150px auto;
-  z-index: 0;
+  padding: 10px 10px 10px 10px;
+  margin: 50px auto 0 auto;
   @media all and (max-width: $break-s) {
-    padding: 100px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    width: 100%;
+    margin: 100px auto 0 auto;
   }
   @media all and (max-width: $break-xs) {
-    width: 100%;
   }
 }
 a {

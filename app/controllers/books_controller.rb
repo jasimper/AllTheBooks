@@ -4,7 +4,9 @@
 
   def search
     session[:search_results] = request.url
-    @books = Book.library_search(params[:search]).page params[:page]
+    @booksearch = Book.library_search(params[:search])
+    @books_minus_yours = @booksearch.where.not(id: current_user.books.pluck(:id))
+    @books = @books_minus_yours.page params[:page]
     if !@books.present?
       @books = GoogleBooks.search(params[:search], {:count => 10})
       if !@books.present?

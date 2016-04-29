@@ -6,6 +6,9 @@
   width: 49.5%;
   display: inline-block;
   margin: 10px 0;
+  @media all and (max-width: $break-s) {
+    width: 100%;
+  }
 }
 .third {
   width: 32.5%;
@@ -14,6 +17,7 @@
 }
 .form {
   display: inline-block;
+  position: relative;
   width: 60%;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -27,7 +31,10 @@
   border-bottom-color: #D6D6D6;
   margin-bottom: 10px;
   @media all and (max-width: $break-m) {
-    width: 90%;
+    width: 95%;
+  }
+  @media all and (max-width: $break-s) {
+    width: 100%;
   }
 }
 .addSearchForm {
@@ -129,7 +136,7 @@
   text-align: center;
 }
 .bookShow {
-  // position: relative;
+  position: relative;
   width: 80%;
   background-color: #FBFBFB;
   border: 1px solid #EEEEEE;

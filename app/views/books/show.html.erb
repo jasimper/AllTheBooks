@@ -28,7 +28,6 @@
   <div class="bookDescription">
     <%= @book.description %>
   </div>
-  <!-- need to figure out how to call notes -->
   <div class="bookNotes">
     <% @book.library_book(current_user, @book).first.notes.each do |n| %>
       <%= n.info %>

@@ -2,6 +2,7 @@
   position: relative;
 }
 .calendar {
+  width: 100%;
 }
 .monthHeader {
   font-size: 1.5rem;
@@ -20,13 +21,10 @@
 }
 .calendarSwitcher {
   display: inline-block;
-  position: sticky;
-  right: 0;
-  top: 0;
   width: 69.5%;
   padding-top: 10px;
   text-align: right;
-  @media all and (max-width: $break-m) {
+  @media all and (max-width: 805px) {
     display: block;
     width: 100%;
   }
