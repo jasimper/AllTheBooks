@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.3'
 
+gem 'rails_12factor'
+
 gem 'pg'
 
 gem 'sass-rails', '~> 5.0'
@@ -26,6 +28,8 @@ gem 'googlebooks', '~> 0.0.9'
 gem 'kaminari'
 
 gem 'puma'
+
+gem 'rollbar', '~> 2.8.3'
 
 gem 'sidekiq'
 
@@ -63,3 +67,4 @@ group :test do
   gem 'selenium-webdriver'
 
 end
+ruby '2.2.5'
