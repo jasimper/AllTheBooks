@@ -18,6 +18,7 @@ resources :notes
 
   resources :books do
     collection do
+      get 'list', action: 'list'
       get 'search', action: 'search'
       post 'add_gbook', action: 'add_gbook'
     end

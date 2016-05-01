@@ -9,8 +9,8 @@
       <% end %>
     </div>
     <div class="agendaInfo">
-      <%= link_to e.event, event_path(e) %> |
-      <%= link_to "Edit", edit_event_path(e) %>
+      <%= link_to e.event, event_path(e) %> &nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to icon('pencil', ' Edit'), edit_event_path(e) %>
       <% previous_date = e.release_date %>
     </div>
   </div>

@@ -82,6 +82,16 @@
 .actions {
   text-align: center;
 }
+.bookViewSwitcher {
+  display: block;
+  text-align: right;
+  padding: 0 30px;
+  font-size: 1.5rem;
+  color: #669966;
+  i {
+    font-size: 1.5rem;
+  }
+}
 .bookshelf {
   // height: 560px;
   // text-align: center;
@@ -199,7 +209,7 @@
   font-size: 1.3rem;
   padding-top: 20px;
   a {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   }
 }
 .bookInfoIcon {

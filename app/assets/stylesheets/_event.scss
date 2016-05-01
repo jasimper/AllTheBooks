@@ -10,6 +10,17 @@
     font-size: 1.5rem;
   }
 }
+.simple-calendar th {
+    @media all and (max-width: $break-s) {
+    display: none;
+  }
+}
+.simple-calendar .day {
+  @media all and (max-width: $break-s) {
+    display: block;
+    width: 100%;
+  }
+}
 .addToCalendar {
   display: inline-block;
   width: 30%;

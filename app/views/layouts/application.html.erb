@@ -8,15 +8,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/header' %>
+  <div class="container">
+    <%= render 'layouts/header' %>
 
-  <div class="main">
-    <p id="notice"><%= notice %></p>
+    <div class="main">
+      <p id="notice"><%= notice %></p>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
+
+    <%= render 'layouts/footer' unless @skip_footer %>
   </div>
-
-  <%= render 'layouts/footer' unless @skip_footer %>
-
 </body>
 </html>

@@ -1,3 +1,8 @@
 <div class="smallSplash">
-  <h1>All the Books</h1>
+  <div class="footerContent">
+    <%= link_to icon('user-secret'), admin_root_path if current_user.admin? %>
+  </div>
+  <div class="title">
+    <h1>All the Books</h1>
+  </div>
 </div>

@@ -1,14 +1,19 @@
 <% if params[:search].present? %>
   <h3>Your Search Results</h3>
 <% end %>
+<% if !params[:search].present? %>
+<div class="bookViewSwitcher">
+  <%= icon('th') %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to icon('list'), list_books_path, title: "Switch to List View" %>
+</div>
+<% end %>
 <div class="bookshelf">
   <div class="book firstBook">
     <p>Find a book to add to your library.</p>
 
     <div class="form addSearchForm">
       <%= form_tag(search_books_path, method: "get", action: "search") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search By ISBN or Author/Title" %>
-      <%= submit_tag "Search for Book to Add", name: nil %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search by ISBN or Author/Title" %>
+      <%= submit_tag "Search for Books to Add", name: nil %>
       <% end %>
     </div>
   </div>

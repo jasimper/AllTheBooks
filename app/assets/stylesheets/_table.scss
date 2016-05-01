@@ -1,0 +1,37 @@
+.table {
+  display: table;
+  width: 92%;
+  border-collapse: collapse;
+  margin: 10px auto;
+}
+.tableRow {
+  display: table-row;
+}
+.tableCell, .tableHead {
+  display: table-cell;
+  padding: 10px;
+  border: #f0f0f0 1px solid;
+}
+.tableHead {
+    font-weight: bold;
+    background-color: #ECECEC;
+    border-bottom: 1px #808080 solid;
+}
+.tableRow:nth-child(odd) {
+  background-color: #F6F6F6
+}
+.table40 {
+  width: 40%;
+}
+.table20 {
+  width: 20%;
+}
+.table15 {
+  width: 15%;
+}
+.table10 {
+  width: 10%;
+  @media all and (max-width: $break-s) {
+    display: none;
+  }
+}

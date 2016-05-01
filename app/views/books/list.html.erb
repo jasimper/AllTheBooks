@@ -1,0 +1,31 @@
+<div class="bookViewSwitcher">
+  <%= link_to icon('th'), books_path, title: "Switch to Gallery View" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= icon('list') %>
+</div>
+<div class="table">
+  <div class="tableRow">
+    <div class="tableHead  table40">Title</div>
+    <div class="tableHead  table20">Author(s)</div>
+    <div class="tableHead  table10">Format</div>
+    <div class="tableHead  table15"></div>
+  </div>
+  <% @books.each do |book| %>
+  <div class="tableRow">
+    <div class="tableCell table40"><%= link_to book.title, book %></div>
+    <div class="tableCell table20"><%= link_to book.authors, book %></div>
+    <div class="tableCell table10">
+      <% unless book.format.blank? %>
+        <%= book.format.format %>
+      <% end %>
+    </div>
+    <div class="tableCell table15 bookNavIcon">
+      <%= link_to icon('pencil'), new_note_user_book_path(book.library_book(current_user, book).first.id), title: "Add Note" %> &nbsp;&nbsp;
+      <%= link_to icon('book'), has_read_user_book_path(book.library_book(current_user, book).first.id), { title: "Mark As Read", method: :patch } %> &nbsp;&nbsp;
+      <%= link_to icon('trash'), user_book_path(book.library_book(current_user, book).first.id), title: "Remove From Library", controller: 'user_books', method: :delete, data: {confirm: "Are you sure?"} %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<div class="paginate">
+  <%= paginate @books %>
+</div>

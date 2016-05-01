@@ -27,6 +27,10 @@
     end
   end
 
+  def list
+    @books = current_user.books('title ASC').page(params[:page]).per(25)
+  end
+
   def show
     authorize! :read, @book
 

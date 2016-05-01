@@ -6,25 +6,25 @@
   img {
     width: 500px;
     @media all and (max-width: $break-l) {
-      width: 400px;
-    }
-    @media all and (max-width: $break-m) {
       width: 300px;
     }
-    @media all and (max-width: $break-s) {
+    @media all and (max-width: $break-m) {
       width: 200px;
+    }
+    @media all and (max-width: $break-s) {
+      display: none;
     }
   }
   h1 {
     font-size: 5rem;
     color: #9A9A9A;
-    margin: -50px 0 0 0;
+    margin: -40px 0 0 0;
     text-align: center;
     @media all and (max-width: $break-l) {
-      font-size: 4rem;
+      font-size: 3.5rem;
     }
     @media all and (max-width: $break-m) {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin: -25px 0 0 0;
     }
     @media all and (max-width: $break-s) {
@@ -34,10 +34,24 @@
   }
 }
 .smallSplash {
-  display: block;
-  position: relative;
-  padding: 0 10px 0 0;
+  width: 100%;
+  padding: 0 10px;
   height: 37px;
+  position:absolute;
+	bottom:0;
+	left:0;
+}
+.footerContent {
+  display: inline-block;
+  width: 4.5%;
+  vertical-align: bottom;
+  i {
+    font-size: 1.5rem;
+  }
+}
+.title {
+  display:inline-block;
+  width: 95%;
   text-align: right;
   h1 {
     font-size: 2rem;

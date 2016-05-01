@@ -8,24 +8,30 @@ html, body {
   font-size: 14px;
   color: #282828;
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
-.main {
+.container {
   min-height: 100%;
   position: relative;
+}
+.main {
   width: 90%;
-  padding: 10px 10px 10px 10px;
-  margin: 50px auto 0 auto;
-  @media all and (max-width: $break-s) {
-    padding: 10px 10px 10px 10px;
-    width: 100%;
-    margin: 100px auto 0 auto;
+  padding: 0 10px 37px 10px;
+  margin: 0 auto 0 auto;
+  @media all and (max-width: $break-m) {
+    width: 95%;
+    margin: 0 0 10px 0;
   }
-  @media all and (max-width: $break-xs) {
+  @media all and (max-width: $break-s) {
+    padding: 0 0 10px 0;
+    width: 100%;
+    margin: 0 0 0;
   }
 }
 a {
