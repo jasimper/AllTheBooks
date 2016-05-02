@@ -18,8 +18,8 @@
       <% end %>
     </div>
     <div class="tableCell table15 bookNavIcon">
-      <%= link_to icon('pencil'), new_note_user_book_path(book.library_book(current_user, book).first.id), title: "Add Note" %> &nbsp;&nbsp;
-      <%= link_to icon('book'), has_read_user_book_path(book.library_book(current_user, book).first.id), { title: "Mark As Read", method: :patch } %> &nbsp;&nbsp;
+      <%= link_to icon('pencil'), new_note_user_book_path(book.library_book(current_user, book).first.id), title: "Add Note" %>
+      <%= link_to icon('book'), has_read_user_book_path(book.library_book(current_user, book).first.id), { title: "Mark As Read", method: :patch } %> 
       <%= link_to icon('trash'), user_book_path(book.library_book(current_user, book).first.id), title: "Remove From Library", controller: 'user_books', method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
   </div>

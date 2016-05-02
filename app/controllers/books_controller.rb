@@ -28,7 +28,7 @@
   end
 
   def list
-    @books = current_user.books('title ASC').page(params[:page]).per(25)
+    @books = current_user.books.order('title ASC').page(params[:page]).per(25)
   end
 
   def show

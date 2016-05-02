@@ -33,14 +33,13 @@
       </ul>
 
       <div class="bookNavIcon">
-        <!-- <%= link_to icon('info-circle'), book, title: "More Info" %> &nbsp;&nbsp; -->
-        <%= link_to icon('pencil'), new_note_user_book_path(book.library_book(current_user, book).first.id), title: "Add Note" %> &nbsp;&nbsp;
-        <%= link_to icon('book'), has_read_user_book_path(book.library_book(current_user, book).first.id), { title: "Mark As Read", method: :patch } %> &nbsp;&nbsp;
+        <%= link_to icon('pencil'), new_note_user_book_path(book.library_book(current_user, book).first.id), title: "Add Note" %>
+        <%= link_to icon('book'), has_read_user_book_path(book.library_book(current_user, book).first.id), { title: "Mark As Read", method: :patch } %>
         <%= link_to icon('trash'), user_book_path(book.library_book(current_user, book).first.id), title: "Remove From Library", controller: 'user_books', method: :delete, data: {confirm: "Are you sure?"} %>
         </div>
     </div>
     <div class="bookNavIcon bookInfoIcon">
-      <%= link_to icon('info-circle'), book, title: "More Info" %> &nbsp;&nbsp;
+      <%= link_to icon('info-circle'), book, title: "More Info" %> 
     </div>
   </div>
   <% end %>

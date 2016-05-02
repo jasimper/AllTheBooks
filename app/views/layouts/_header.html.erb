@@ -1,15 +1,21 @@
 <div class="header">
-  <div class="nav">
   <% if current_user %>
+  <div class="nav">
   <%= link_to icon('home', 'Your Library'), root_path  %>
   <%= link_to icon('calendar', 'Release Calendar'), events_path %>
   <%= link_to icon('sign-out', 'Sign Out'), '/logout' %>
-  <% else %>
-    <%= link_to icon('sign-in', 'Sign In'), '/login' %>
-    <%= link_to icon('edit', 'Sign Up'), '/signup' %>
-  <% end %>
   </div>
   <div class="searchForm">
     <%= render partial: 'books/search' if current_user %>
   </div>
+  <% else %>
+  <div class="nav">
+    <%= link_to icon('sign-in', 'Sign In'), '/login' %>
+    <%= link_to icon('edit', 'Sign Up'), '/signup' %>
+  </div>
+  <div class="headText">
+    <h1>All the Books</h1>
+  </div>
+  <% end %>
+
 </div>

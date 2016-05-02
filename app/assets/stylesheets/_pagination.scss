@@ -6,6 +6,9 @@
   margin: auto;
   padding: 1em;
   cursor: default;
+  @media all and (max-width: $break-s) {
+    width: 100%;
+  }
   a, span {
     padding: 0.2em 0.3em;
   }

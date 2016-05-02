@@ -55,4 +55,3 @@
 # format_list.each do |format|
 #   Format.create(format: format)
 # end
-User.create(name: 'original', email: 'o@email.com', password: 'password', password_confirmation: 'password', admin: true)

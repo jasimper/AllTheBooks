@@ -206,10 +206,13 @@
   height: 50px;
   vertical-align: baseline;
   text-align: center;
-  font-size: 1.3rem;
   padding-top: 20px;
   a {
   font-size: 1.5rem;
+  padding: 5px;
+  @media all and (max-width: $break-m) {
+    padding: 5px 10px;
+  }
   }
 }
 .bookInfoIcon {
@@ -218,6 +221,9 @@
   right: 0;
   padding-top: 8px;
   width: 30px;
+  a {
+    padding: 0;
+  }
 }
 .bottomNavLeft {
   display: inline-block;
