@@ -12,7 +12,7 @@
 
     <div class="form addSearchForm">
       <%= form_tag(search_books_path, method: "get", action: "search") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search by ISBN or Author/Title" %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search by ISBN or Author/Title", autofocus: true %>
       <%= submit_tag "Search for Books to Add", name: nil %>
       <% end %>
     </div>
@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="bookNavIcon bookInfoIcon">
-      <%= link_to icon('info-circle'), book, title: "More Info" %> 
+      <%= link_to icon('info-circle'), book, title: "More Info" %>
     </div>
   </div>
   <% end %>

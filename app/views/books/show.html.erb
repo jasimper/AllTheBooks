@@ -40,10 +40,6 @@
     <div class="bottomNavCenter">
       <%= link_to icon('pencil'), new_note_user_book_path(@book.library_book(current_user, @book).first.id), title: "Add Note" %> &nbsp;&nbsp;
       <%= link_to icon('book'), has_read_user_book_path(@book.library_book(current_user, @book).first.id), { title: "Mark As Read", method: :patch } %>
-      <% if current_user.admin? %>
-         | <%= link_to 'Edit', edit_book_path(@book) %> |
-        <%= link_to 'Delete', @book, method: :delete, data: {confirm: "Are you sure?"} %>
-      <% end %>
     </div>
     <div class="bottomNavRight">
       <%= link_to icon('trash'), user_book_path(@book.library_book(current_user, @book).first.id), title: "Remove From Library", controller: 'user_books', method: :delete, data: {confirm: "Are you sure?"} %>
