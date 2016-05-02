@@ -10,7 +10,9 @@
   </div>
   <% @books.each do |book| %>
   <div class="tableRow">
-    <div class="tableCell table40"><%= link_to book.title, book %></div>
+    <div class="tableCell table40"><% if book.library_book(current_user, book).first.has_read %>
+     <div class="read"><%= icon('bookmark') %></div>
+    <% end %><%= link_to book.title, book %></div>
     <div class="tableCell table20"><%= link_to book.authors, book %></div>
     <div class="tableCell table10">
       <% unless book.format.blank? %>
@@ -19,7 +21,7 @@
     </div>
     <div class="tableCell table15 bookNavIcon">
       <%= link_to icon('pencil'), new_note_user_book_path(book.library_book(current_user, book).first.id), title: "Add Note" %>
-      <%= link_to icon('book'), has_read_user_book_path(book.library_book(current_user, book).first.id), { title: "Mark As Read", method: :patch } %> 
+      <%= link_to icon('book'), has_read_user_book_path(book.library_book(current_user, book).first.id), { title: "Mark As Read", method: :patch } %>
       <%= link_to icon('trash'), user_book_path(book.library_book(current_user, book).first.id), title: "Remove From Library", controller: 'user_books', method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
   </div>

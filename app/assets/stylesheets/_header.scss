@@ -72,6 +72,7 @@
     width: 100%;
     position: relative;
     text-align: center;
+    padding-right: 0;
   }
   input {
     height: 2rem;
@@ -85,12 +86,13 @@
     padding-left: 5px;
     @media all and (max-width: $break-s) {
       width: 55%;
+      font-size: 0.7rem;
     }
   }
   input[type=submit] {
     border-width: 1px;
     margin: 5px 0;
-    width: 120px;
+    width: 130px;
     background-color: #669966;
     color: #FFFFFF;
     &:hover {

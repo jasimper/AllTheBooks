@@ -6,6 +6,8 @@
 }
 .tableRow {
   display: table-row;
+  position: relative;
+  top: 0;
 }
 .tableCell, .tableHead {
   display: table-cell;
@@ -31,7 +33,14 @@
 }
 .table10 {
   width: 10%;
-  @media all and (max-width: $break-s) {
+  @media all and (max-width: $break-m) {
     display: none;
   }
+}
+.read {
+  display: inline-block;
+  font-size: 2.5rem;
+  color: #996680;
+  margin: -20px 5px 0 -10px;
+  vertical-align: bottom;
 }
