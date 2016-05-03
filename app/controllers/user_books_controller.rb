@@ -13,14 +13,10 @@ class UserBooksController < ApplicationController
 
   def add_note
     authorize! :update, @user_book
-    respond_to do |format|
-      if @user_book.update_attributes(book_notes_params)
-        format.html { redirect_to root_path, notice: 'Your note was successfully created.' }
-        format.json { render json: @book }
-      else
-        format.html { render :new_note }
-        format.json { render json: @user_book.errors, status: :unprocessable_entity }
-      end
+    if @user_book.update_attributes(book_notes_params)
+      redirect_to root_path, notice: 'Your note was successfully created.'
+    else
+      render :new_note
     end
   end
 
@@ -28,10 +24,7 @@ class UserBooksController < ApplicationController
     authorize! :update, @user_book
     @user_book.toggle!(:has_read)
     @user_book.update_attributes(user_books_params)
-      respond_to do |format|
-      format.html { redirect_to request.referrer }
-      format.json { render json: @book }
-    end
+      redirect_to request.referrer
   end
 
   def update
@@ -41,10 +34,7 @@ class UserBooksController < ApplicationController
   def destroy
     authorize! :destroy, @user_book
     @user_book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully removed from your library.' }
-      format.json { head :no_content }
-    end
+      redirect_to books_url, notice: 'Book was successfully removed from your library.' 
   end
 
 private

@@ -30,37 +30,26 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   def create
     @event = current_user.events.create(event_params)
     authorize! :create, @event
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+    redirect_to events_path, notice: 'Event was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
     authorize! :update, @event
-    respond_to do |format|
-      if @event.update_attributes(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.update_attributes(event_params)
+      redirect_to @event, notice: 'Event was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     authorize! :destroy, @event
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'The Event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to events_url, notice: 'The Event was successfully destroyed.'
   end
 
   private

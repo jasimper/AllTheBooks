@@ -33,7 +33,6 @@
 
   def show
     authorize! :read, @book
-
   end
 
   def new
@@ -48,28 +47,20 @@
   def create
     @book = current_user.books.create(book_params)
     authorize! :create, @book
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render :show, status: :created, location: @book }
-      else
-        format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    if @book.save
+      redirect_to @book, notice: 'Book was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
     authorize! :update, @book
     @book.set_edittable
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to books_path, notice: 'Book was successfully updated.' }
-        format.json { render :show, status: :ok, location: @book }
-      else
-        format.html { render :edit }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    if @book.update(book_params)
+      redirect_to books_path, notice: 'Book was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -77,39 +68,27 @@
     @book = Book.find(params[:id])
     @book.user_books.create(user_id: current_user.id)
     authorize! :create, @book
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to root_path, notice: 'Book was successfully added to your library.' }
-        format.json { render :index, status: :success}
-      else
-        format.html { redirect_to request.referrer, notice: 'Book could not be added. Is it already in your library?' }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    if @book.save
+      redirect_to root_path, notice: 'Book was successfully added to your library.'
+    else
+      redirect_to request.referrer, notice: 'Book could not be added. Is it already in your library?'
     end
   end
 
   def add_gbook
     @book = current_user.books.create(book_params)
     authorize! :create, @book
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to edit_book_path(@book), notice: 'Please add a genre and format, then save.' }
-        format.json { render :index, status: :success}
-      else
-        format.html { redirect_to request.referrer, notice: 'Book could not be added. Is it already in your library?' }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    if @book.save
+      redirect_to edit_book_path(@book), notice: 'Please add a genre and format, then save.'
+    else
+      redirect_to request.referrer, notice: 'Book could not be added. Is it already in your library?'
     end
-
   end
 
   def destroy
     authorize! :destroy, @book
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to session[:search_results], notice: 'Book was successfully removed.' }
-      format.json { head :no_content }
-    end
+      redirect_to session[:search_results], notice: 'Book was successfully removed.'
   end
 
   private
