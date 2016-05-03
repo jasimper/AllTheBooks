@@ -28,11 +28,14 @@
   <div class="bookDescription">
     <%= @book.description %>
   </div>
+  <% if @book.library_book(current_user, @book).first.notes.present? %>
   <div class="bookNotes">
+    Note: <br>
     <% @book.library_book(current_user, @book).first.notes.each do |n| %>
       <%= n.info %>
       <% end %>
   </div>
+  <% end %>
   <div class="bookNavIcon">
     <div class="bottomNavLeft">
       <%= link_to icon('arrow-left'), books_path, title: "Back" %>

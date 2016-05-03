@@ -103,8 +103,12 @@
 .headText {
   text-align: center;
   color: #FFFFFF;
+  display: none;
   h1 {
     font-size: 3rem;
     margin: 0;
   }
+  @media all and (max-width: $break-s) {
+    display: block;
+ }
 }

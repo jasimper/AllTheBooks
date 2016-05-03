@@ -29,7 +29,7 @@ html, body {
     margin: 0 0 10px 0;
   }
   @media all and (max-width: $break-s) {
-    padding: 0 0 37px 0;
+    padding: 0 5px 37px;
     width: 100%;
     margin: 0 0;
   }
@@ -44,4 +44,15 @@ a {
 }
 i {
   font-size: 1.5rem;
+}
+#notice, #alert {
+  margin: 5px;
+  padding: 0 5px;
+}
+#notice {
+  background-color: #D6D6D6;
+}
+#alert {
+  background-color: #996680;
+  color: #FFFFFF;
 }
