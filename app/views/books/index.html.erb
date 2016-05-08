@@ -2,6 +2,18 @@
   <h3>Your Search Results</h3>
 <% end %>
 <% if !params[:search].present? %>
+<div class="booksFilter">
+  <% if !params[:unread].present? %>
+    <%= link_to 'Show Unread Books',  books_path(unread: 'unread') %>
+  <% else %>
+    <%= link_to "Show All Books", books_path %>
+  <% end %>&nbsp;&nbsp; | &nbsp;&nbsp;
+  <% if !params[:newest_first].present? %>
+    <%= link_to "Most Recent Additions", books_path(newest_first: 'newest_first') %>
+  <% else %>
+    <%= link_to "Title A-Z", root_path %>
+  <% end %>
+</div>
 <div class="bookViewSwitcher">
   <%= icon('th') %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to icon('list'), list_books_path, title: "Switch to List View" %>
 </div>
@@ -12,9 +24,13 @@
 
     <div class="form addSearchForm">
       <%= form_tag(search_books_path, method: "get", action: "search") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search by ISBN or Author/Title", autofocus: true %>
-      <%= submit_tag "Search for Books to Add", name: nil %>
+      <%= text_field_tag(:search) %>
+      Search by:&nbsp;&nbsp;
+      <%= select_tag 'type', options_for_select(['ISBN', 'Author-Title'], 'ISBN') %>
+        <br>
+      <%= submit_tag "Search", name: nil %>
       <% end %>
+
     </div>
   </div>
   <% @books.each do |book| %>

@@ -2,33 +2,44 @@
   before_filter :authenticate_user!
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
-  def search
+    def search
     session[:search_results] = request.url
     @booksearch = Book.library_search(params[:search])
     @books_minus_yours = @booksearch.where.not(id: current_user.books.pluck(:id))
     @books = @books_minus_yours.page params[:page]
-    if !@books.present?
-      @books = GoogleBooks.search(params[:search], {:count => 10})
-      if !@books.present?
+    # @books = Book.library_search(params[:search])
+    if @books.count == 0
+      case params[:type]
+      when 'ISBN'
+        isbn = 'isbn:' << params[:search]
+        @books = GoogleBooks.search(isbn, {count: 10})
+      when 'Author-Title'
+        @books = GoogleBooks.search(params[:search], {count: 10})
+      else
+        @books = GoogleBooks.search(params[:search], {count: 10})
+      end
+      if @books.count == 0
         redirect_to new_book_path, notice: 'There are no books containing the search term(s). Please enter your book manually.'
       end
     end
   end
 
   def index
-    @user = current_user
+    @books = current_user.books.where(nil).order('title ASC').page params[:page]
+    @books = @books.unread(current_user).uniq if params[:unread].present?
+    @books = @books.reorder('user_books.created_at DESC') if params[:newest_first].present?
     if params[:search].present?
       @books = current_user.books.library_search(params[:search]).page params[:page]
       if !@books.present?
         redirect_to root_path, notice: 'There are no books containing the search term(s).'
       end
-    else
-      @books = @user.books.order('title ASC').page params[:page]
     end
   end
 
   def list
-    @books = current_user.books.order('title ASC').page(params[:page]).per(25)
+    @books = current_user.books.where(nil).order('title ASC').page(params[:page]).per(25)
+    @books = @books.unread(current_user).uniq if params[:unread].present?
+    @books = @books.reorder('user_books.created_at DESC') if params[:newest_first].present?
   end
 
   def show

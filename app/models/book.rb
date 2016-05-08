@@ -14,6 +14,8 @@ class Book < ActiveRecord::Base
   # need to validate series boolean and field
   paginates_per 8
 
+  scope :unread, -> (current_user) {joins(:user_books).where("user_books.user_id = ? AND user_books.has_read = ?", current_user.id, false)}
+  
   def self.library_search(search)
     if search
       where("authors ILIKE ? OR title ILIKE ? or isbn ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}")

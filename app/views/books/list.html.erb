@@ -1,3 +1,15 @@
+<div class="booksFilter">
+  <% if !params[:unread].present? %>
+    <%= link_to 'Show Unread Books',  list_books_path(unread: 'unread') %>
+  <% else %>
+    <%= link_to "Show All Books", list_books_path %>
+  <% end %>&nbsp;&nbsp; | &nbsp;&nbsp;
+  <% if !params[:newest_first].present? %>
+    <%= link_to "Most Recent Additions", list_books_path(newest_first: 'newest_first') %>
+  <% else %>
+    <%= link_to "Title A-Z", list_books_path %>
+  <% end %>
+</div>
 <div class="bookViewSwitcher">
   <%= link_to icon('th'), books_path, title: "Switch to Gallery View" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= icon('list') %>
 </div>

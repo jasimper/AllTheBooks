@@ -82,12 +82,25 @@
 .actions {
   text-align: center;
 }
+.booksFilter {
+  display: inline-block;
+  width: 68%;
+  text-align: left;
+  padding: 0 30px;
+  @media all and (max-width: $break-m) {
+    padding: 0 10px;
+  }
+}
 .bookViewSwitcher {
-  display: block;
+  display: inline-block;
+  width: 28%;
   text-align: right;
   padding: 0 30px;
   font-size: 1.5rem;
   color: #669966;
+  @media all and (max-width: $break-m) {
+    padding: 0 10px;
+  }
   i {
     font-size: 1.5rem;
   }
