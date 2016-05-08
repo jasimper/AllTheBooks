@@ -40,7 +40,15 @@
 .addSearchForm {
   width: 100%;
   border: none;
-  margin-top: 10px;
+  // margin-top: 10px;
+  input, select {
+    margin: 5px 0;
+  }
+  i {
+    font-size: 1.2rem;
+    color: #4C4C4C;
+    padding-left: 5px;
+  }
 }
 .form label {
   padding-bottom: 15px;
@@ -77,6 +85,7 @@
   color: #FFFFFF;
   &:hover {
     border-color: #808080;
+    background-color: #476b47;
   }
 }
 .actions {
@@ -281,6 +290,7 @@
   color: #FFFFFF;
   &:hover {
     border-color: #808080;
+    background-color: #476b47;
   }
   @media all and (max-width: $break-m) {
     // width: 240px;

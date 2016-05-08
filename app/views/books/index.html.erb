@@ -27,6 +27,7 @@
       <%= text_field_tag(:search) %>
       Search by:&nbsp;&nbsp;
       <%= select_tag 'type', options_for_select(['ISBN', 'Author-Title'], 'ISBN') %>
+      <%= icon('question-circle', title: "ISBN search will yeild the most specific results, whereas Author/Title search will return a larger range of results.") %>
         <br>
       <%= submit_tag "Search", name: nil %>
       <% end %>
