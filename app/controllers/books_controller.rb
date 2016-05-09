@@ -37,7 +37,7 @@
   end
 
   def list
-    @books = current_user.books.where(nil).order('title ASC').page(params[:page]).per(25)
+    @books = current_user.books.where(nil).order('title ASC').page(params[:page]).per(12)
     @books = @books.unread(current_user).uniq if params[:unread].present?
     @books = @books.reorder('user_books.created_at DESC') if params[:newest_first].present?
   end

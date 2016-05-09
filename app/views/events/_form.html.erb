@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.fields_for :notes do |n| %>
-      <%= n.label :info %> <br>
+      <%= n.label :info, 'Notes' %> <br>
       <%= n.text_area :info %>
     <% end %>
   </div>

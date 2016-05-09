@@ -71,11 +71,27 @@
   padding: 5px;
 }
 .eventShow {
+  width: 80%;
   background-color: #FBFBFB;
   border: 1px solid #EEEEEE;
-  margin: 10px;
+  margin: 0 auto;
   padding: 10px 10px;
   text-align: left;
+  @media all and (max-width: $break-m) {
+    display: block;
+    width: 95%;
+    margin: 10px auto;
+  }
+}
+.backEvent {
+  width: 80%;
+  margin: 0 auto;
+  padding: 5px;
+  @media all and (max-width: $break-m) {
+    display: block;
+    width: 95%;
+    margin: 10px auto;
+  }
 }
 .note {
   padding: 10px 0;

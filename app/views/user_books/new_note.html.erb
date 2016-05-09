@@ -1,3 +1,4 @@
+<h1>Notes for <%= @user_book.book.title %></h1>
 <div class="form">
   <%= form_for @user_book, url: {action: "add_note"} do |f| %>
   <% if @user_book.errors.any? %>
@@ -13,7 +14,7 @@
   <% end %>
   <div class="field">
     <%= f.fields_for :notes do |n| %>
-      <%= n.label :info %> <br>
+      <%= n.label :info, 'Notes' %> <br>
       <%= n.text_area :info %>
     <% end %>
   </div>
