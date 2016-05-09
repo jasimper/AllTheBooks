@@ -37,12 +37,8 @@
         <%= text_field_tag :search, params[:search], placeholder: "Search By ISBN, Title, or Author" %>
         <%= submit_tag "Search", name: nil %>
         <% end %>
-      </div>
-      <div>
-        or<br>
-        <%= link_to new_book_path do %>
-          <div class="fakeButton"> Add Book Manually</div>
-        <% end %>
+        or<br />
+        <%= button_to "Add Book Manually", new_book_path, method: :get %>
       </div>
     </div>
   </div>

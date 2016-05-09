@@ -78,7 +78,20 @@
   border-width: 1px;
   margin: 5px 0;
   padding: 5px 20px;
-  // width: 300px;
+  background-color: #669966;
+  color: #FFFFFF;
+  &:hover {
+    border-color: #808080;
+    background-color: #476b47;
+  }
+}
+.nonForm input[type=submit] {
+  height: 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border-width: 1px;
+  margin: 5px 0;
+  padding: 5px 20px;
   background-color: #669966;
   color: #FFFFFF;
   &:hover {

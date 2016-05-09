@@ -1,9 +1,8 @@
 
 <%= render 'form' %>
 
-<div class="mistake">
+<div class="mistake nonForm">
   <h4>Not the book you were looking for?</h4>
-  <%= link_to @book, method: :delete do %>
-    <div class="fakeButton">Back to Search</div>
-  <% end %>
+
+  <%= button_to "Back to Search", @book, method: :delete %>
 </div>
