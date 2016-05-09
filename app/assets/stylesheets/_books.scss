@@ -1,16 +1,4 @@
-.addSearchForm {
-  width: 100%;
-  border: none;
-  // margin-top: 10px;
-  input, select {
-    margin: 5px 0;
-  }
-  i {
-    font-size: 1.2rem;
-    color: #4C4C4C;
-    padding-left: 5px;
-  }
-}
+
 .booksFilter {
   display: inline-block;
   width: 68%;
@@ -35,8 +23,21 @@
   }
 }
 .bookshelf {
-  // height: 560px;
-  // text-align: center;
+  // width: 100%;
+  // margin: 0 auto;
+}
+.addSearchForm {
+  width: 100%;
+  border: none;
+  // margin-top: 10px;
+  input, select {
+    margin: 5px 0;
+  }
+  i {
+    font-size: 1.2rem;
+    color: #4C4C4C;
+    padding-left: 5px;
+  }
 }
 .bookSearchAgain {
   display: inline-block;
@@ -82,10 +83,15 @@
     margin: 10px auto;
   }
 }
-.firstBook {
+.bookFirst {
   height: 226px;
   vertical-align: middle;
   text-align: center;
+  p {
+    color: #4C4C4C;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
 }
 .bookShow {
   position: relative;
