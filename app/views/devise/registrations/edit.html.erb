@@ -8,8 +8,8 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
-  
-  <div class="field">
+
+  <div class="field whole">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
@@ -18,18 +18,18 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> (leave blank if you don't want to change it)<br />
+  <div class="field whole">
+    <%= f.label :password, "New Password" %><br /><span class="tinyText"> (leave blank if you don't want to change it)</span><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div class="field whole">
+    <%= f.label :password_confirmation, "Confirm New Password" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> (we need your current password to confirm your changes)<br />
+  <div class="field whole">
+    <%= f.label :current_password %><br /><span class="tinyText">(needed to confirm your changes)</span><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
