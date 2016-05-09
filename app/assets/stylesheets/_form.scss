@@ -22,13 +22,13 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  background-color: #FBFBFB;
+  background-color: $shade-2;
   padding: 20px;
   border: 1px solid;
-  border-left-color: #9A9A9A;
-  border-top-color: #9A9A9A;
-  border-right-color: #D6D6D6;
-  border-bottom-color: #D6D6D6;
+  border-left-color: $shade-7;
+  border-top-color: $shade-7;
+  border-right-color: $shade-5;
+  border-bottom-color: $shade-5;
   margin: 0 auto 10px;
   @media all and (max-width: $break-m) {
     width: 95%;
@@ -43,7 +43,6 @@
 }
 .form label {
   margin-top: 5px;
-  // padding-bottom: 15px;
   font-size: 1.2rem;
 }
 .form input[type=text], textarea{
@@ -65,10 +64,10 @@
 .form textarea {
   font-size: 1rem;
   height: 120px;
-  border-left-color: #9A9A9A;
-  border-top-color: #9A9A9A;
-  border-right-color: #EEEEEE;
-  border-bottom-color: #EEEEEE;
+  border-left-color: $shade-7;
+  border-top-color: $shade-7;
+  border-right-color: $shade-4;
+  border-bottom-color: $shade-4;
   border-left-width: thick;
   border-radius: 5px;
   padding-left: 8px;
@@ -78,11 +77,11 @@
   border-width: 1px;
   margin: 5px 0;
   padding: 5px 20px;
-  background-color: #669966;
-  color: #FFFFFF;
+  background-color: $accent;
+  color: $shade-1;
   &:hover {
-    border-color: #808080;
-    background-color: #476b47;
+    border-color: $shade-8;
+    background-color: $accent-dk;
   }
 }
 .nonForm input[type=submit] {
@@ -92,16 +91,13 @@
   border-width: 1px;
   margin: 5px 0;
   padding: 5px 20px;
-  background-color: #669966;
-  color: #FFFFFF;
+  background-color: $accent;
+  color: $shade-1;
   &:hover {
-    border-color: #808080;
-    background-color: #476b47;
+    border-color: $shade-8;
+    background-color: $accent-dk;
   }
 }
 .tinyText {
   font-size: 0.8rem;
 }
-// .actions {
-//   text-align: center;
-// }

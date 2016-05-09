@@ -17,7 +17,7 @@
   }
   h1 {
     font-size: 5rem;
-    color: #9A9A9A;
+    color: $shade-7;
     margin: -40px 0 0 0;
     text-align: center;
     @media all and (max-width: $break-l) {
@@ -55,7 +55,7 @@
   text-align: right;
   h1 {
     font-size: 2rem;
-    color: #9A9A9A;
+    color: $shade-7;
     margin: -10px 0 0 0;
   }
 }

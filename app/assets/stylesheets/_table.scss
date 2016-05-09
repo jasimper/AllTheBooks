@@ -12,15 +12,15 @@
 .tableCell, .tableHead {
   display: table-cell;
   padding: 10px;
-  border: #f0f0f0 1px solid;
+  border: $shade-1 1px solid;
 }
 .tableHead {
     font-weight: bold;
-    background-color: #ECECEC;
-    border-bottom: 1px #808080 solid;
+    background-color: $shade-4;
+    border-bottom: 1px $shade-8 solid;
 }
 .tableRow:nth-child(odd) {
-  background-color: #F6F6F6
+  background-color: $shade-3;
 }
 .table40 {
   width: 40%;
@@ -40,7 +40,7 @@
 .read {
   display: inline-block;
   font-size: 2.5rem;
-  color: #996680;
+  color: $contrast;
   margin: -20px 5px 0 -10px;
   vertical-align: bottom;
 }

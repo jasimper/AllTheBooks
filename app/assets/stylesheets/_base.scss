@@ -6,7 +6,7 @@ html {
 html, body {
   font-family: 'Roboto Slab', Arial, serif;
   font-size: 14px;
-  color: #282828;
+  color: $shade-10;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -37,9 +37,9 @@ html, body {
 a {
   font-size: 1rem;
   text-decoration: none;
-  color: #4C4C4C;
+  color: $shade-9;
   &:hover {
-    color: #669966;
+    color: $accent;
   }
 }
 i {
@@ -50,13 +50,13 @@ i {
   padding: 0 5px;
 }
 #notice {
-  background-color: #D6D6D6;
+  background-color: $shade-5;
 }
 #alert {
-  background-color: #996680;
-  color: #FFFFFF;
+  background-color: $contrast;
+  color: $shade-1;
 }
 h1 {
   font-size: 1.7rem;
-  color: #4C4C4C;
+  color: $shade-9;
 }

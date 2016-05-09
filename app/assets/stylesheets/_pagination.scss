@@ -1,6 +1,4 @@
 .pagination {
-  // background: #f1f1f1;
-  // border: 1px solid #e5e5e5;
   width: 90%;
   text-align: center;
   margin: auto;
@@ -13,13 +11,13 @@
     padding: 0.2em 0.3em;
   }
   .disabled {
-    color: #aaaaaa;
+    color: $shade-7;
   }
   .current{
     font-style: normal;
     font-weight: 300;
-    background-color: #669966;
-    color: #FFFFFF;
+    background-color: $accent;
+    color: $shade-1;
     display: inline-block;
     width: 1.4em;
     height: 1.4em;
@@ -27,14 +25,12 @@
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
     border-radius: 1em;
-    // text-shadow: rgba(white, .8) 1px 1px 1px;
     &:hover, &:focus {
-      background-color: #CCCCCC;
+      background-color: $shade-6;
     }
   }
   a {
     text-decoration: none;
-    // color: black;
     &:hover, &:focus {
       text-decoration: underline;
     }

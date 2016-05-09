@@ -48,8 +48,8 @@
     display: inline-block;
     margin: 0;
     width: 170px;
-    background-color: #9A9A9A;
-    border: solid 1px #9A9A9A;
+    background-color: $shade-7;
+    border: solid 1px $shade-7;
     border-radius: 5px 5px 0 0;
     @media all and (max-width: $break-s) {
       width: 140px;
@@ -62,18 +62,18 @@
   }
 }
 .current .fakeButton {
-  background-color: #669966;
-  border-bottom: solid 1px #669966;
-  border-top:  solid 3px #669966;
+  background-color: $accent;
+  border-bottom: solid 1px $accent;
+  border-top:  solid 3px $accent;
 }
 .eventWrapper {
-  border: 1px solid #9A9A9A;
+  border: 1px solid $shade-7;
   padding: 5px;
 }
 .eventShow {
   width: 80%;
-  background-color: #FBFBFB;
-  border: 1px solid #EEEEEE;
+  background-color: $shade-2;
+  border: 1px solid $shade-4;
   margin: 0 auto;
   padding: 10px 10px;
   text-align: left;
@@ -98,7 +98,7 @@
 }
 .agenda {
   padding: 20px;
-  background-color: #FBFBFB;
+  background-color: $shade-2;
   div {
     margin: 10px 0;
   }

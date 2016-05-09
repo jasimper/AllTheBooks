@@ -9,7 +9,7 @@
 .ribbon span {
   font-size: 10px;
   font-weight: bold;
-  color: #FFF;
+  color: $shade-1;
   text-transform: uppercase;
   text-align: center;
   line-height: 20px;
@@ -17,8 +17,8 @@
   -webkit-transform: rotate(-45deg);
   width: 100px;
   display: block;
-  background: #79A70A;
-  background: linear-gradient(#A3758D 0%, #996680 100%);
+  background: $contrast;
+  background: linear-gradient(#A3758D 0%, $contrast 100%);
   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
   position: absolute;
   top: 19px; left: -21px;
@@ -27,17 +27,17 @@
   content: "";
   position: absolute; left: 0px; top: 100%;
   z-index: -1;
-  border-left: 3px solid #996680;
+  border-left: 3px solid $contrast;
   border-right: 3px solid transparent;
   border-bottom: 3px solid transparent;
-  border-top: 3px solid #996680;
+  border-top: 3px solid $contrast;
 }
 .ribbon span::after {
   content: "";
   position: absolute; right: 0px; top: 100%;
   z-index: -1;
   border-left: 3px solid transparent;
-  border-right: 3px solid #996680;
+  border-right: 3px solid $contrast;
   border-bottom: 3px solid transparent;
-  border-top: 3px solid #996680;
+  border-top: 3px solid $contrast;
 }
