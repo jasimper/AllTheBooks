@@ -1,9 +1,9 @@
 <div class="events">
   <div>
   <div class="addToCalendar">
-    <%= link_to new_event_path do %>
-      <div class="fakeButton">Add a Book Release</div>
-    <% end %>
+    <div class="nonForm">
+      <%= button_to "Add a Book Release", new_event_path, method: :get %>
+    </div>
   </div>
   <div class="calendarSwitcher">
     <%= link_to events_path(view: "calendar"), class: [assign_current( "events"), assign_current("calendar")] do %>
@@ -18,8 +18,8 @@
   <%= render @partial %>
 
   <div class="addToCalendar">
-    <%= link_to new_event_path do %>
-      <div class="fakeButton">Add a Book Release</div>
-    <% end %>
+    <div class="nonForm">
+      <%= button_to "Add a Book Release", new_event_path, method: :get %>
+    </div>
   </div>
 </div>
