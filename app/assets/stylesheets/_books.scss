@@ -197,12 +197,16 @@
 .mistake {
   display: inline-block;
   width: 30%;
-  background-color: #F8F8F8;
+  background-color: #FBFBFB;
   border: solid 1px #9A9A9A;
   padding: 20px;
   vertical-align: top;
   text-align: center;
   margin: 0 10px;
+  @media all and (max-width: $break-m) {
+    width: 95%;
+    margin: 0;
+  }
 }
 .fakeButton {
   display: inline-block;
