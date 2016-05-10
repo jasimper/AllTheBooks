@@ -1,7 +1,7 @@
 class UserBook < ActiveRecord::Base
   belongs_to :user
   belongs_to :book
-  has_many :notes, as: :noteable
+  has_many :notes, as: :noteable, dependent: :destroy
   accepts_nested_attributes_for :notes
 
   validates_presence_of [:user_id, :book_id]

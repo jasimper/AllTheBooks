@@ -9,13 +9,20 @@ $break-l: 975px;
 $shade-10: #282828;
 $shade-9: #4C4C4C;
 $shade-8: #808080;
-$shade-7: #9A9A9A;
-$shade-6: #CCCCCC;
-$shade-5: #D6D6D6;
-$shade-4: #EEEEEE;
-$shade-3: #F6F6F6;
-$shade-2: #FBFBFB;
+// $shade-7: #9A9A9A;
+// $shade-6: #CCCCCC;
+// $shade-5: #D6D6D6;
+// $shade-4: #EEEEEE;
+// $shade-3: #F6F6F6;
+// $shade-2: #FBFBFB;
 $shade-1: #FFFFFF;
+
+$shade-7: darken(#9A9A9A, 10%);
+$shade-6: darken(#CCCCCC, 10%);
+$shade-5: darken(#D6D6D6, 10%);
+$shade-4: darken(#EEEEEE, 10%);
+$shade-3: darken(#F6F6F6, 10%);
+$shade-2: darken(#FBFBFB, 10%);
 
 $accent: #669966;
 $accent-dk: #476b47;
