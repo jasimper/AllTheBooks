@@ -99,7 +99,7 @@
   def destroy
     authorize! :destroy, @book
     @book.destroy
-      redirect_to session[:search_results], notice: 'Book was successfully removed.'
+      redirect_to session[:search_results]
   end
 
   private
