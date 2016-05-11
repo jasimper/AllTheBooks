@@ -1,5 +1,4 @@
  class BooksController < ApplicationController
-  before_filter :authenticate_user!
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
     def search
@@ -7,7 +6,6 @@
     @booksearch = Book.library_search(params[:search])
     @books_minus_yours = @booksearch.where.not(id: current_user.books.pluck(:id))
     @books = @books_minus_yours.page params[:page]
-    # @books = Book.library_search(params[:search])
     if @books.count == 0
       case params[:type]
       when 'ISBN'
