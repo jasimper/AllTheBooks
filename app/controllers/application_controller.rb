@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, notice: "You don't have permission to do that."
   end
 
+  before_filter :authenticate_user!
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   before_filter :set_week_start, if: :user_signed_in?

@@ -45,7 +45,8 @@
   padding: 10px;
   text-align: center;
   .instruct {
-
+    padding: 0 10px;
+    text-align: left;
   }
   .searchArea {
     text-align: center;
@@ -145,7 +146,7 @@
 }
 .bookOverflow {
   max-height: 80px;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 .bookNavIcon {
   height: 50px;

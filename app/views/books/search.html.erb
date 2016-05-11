@@ -5,8 +5,8 @@
     <div class="bookImage"><%= image_tag(book.image_link) %></div>
     <div class="bookInfo">
       <ul>
-        <li><%= book.authors %></li>
-        <li><%= book.title %></li>
+        <li class="bookOverflow"><%= book.authors %></li>
+        <li class="bookOverflow"><%= book.title %></li>
         <li><%= book.published_date %></li>
       </ul>
       <div class="bookNavIcon">
