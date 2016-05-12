@@ -146,7 +146,7 @@
 }
 .bookOverflow {
   max-height: 80px;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 .bookNavIcon {
   height: 50px;
@@ -156,9 +156,15 @@
   a {
   font-size: 1.5rem;
   padding: 5px;
-  @media all and (max-width: $break-m) {
-    padding: 5px 10px;
+    @media all and (max-width: $break-m) {
+      padding: 5px 10px;
+    }
   }
+}
+.bookIconRead {
+  color: $shade-6;
+  &:hover {
+    color: $accent;
   }
 }
 .bookInfoIcon {

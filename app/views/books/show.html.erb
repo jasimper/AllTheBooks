@@ -42,7 +42,11 @@
     </div>
     <div class="bottomNavCenter">
       <%= link_to icon('pencil'), new_note_user_book_path(@book.library_book(current_user, @book).first.id), title: "Add Note" %> &nbsp;&nbsp;
+      <% if @book.library_book(current_user, @book).first.has_read %>
+      <%= link_to icon('book', class: 'bookIconRead'), has_read_user_book_path(@book.library_book(current_user, @book).first.id), { title: "Mark As Unread", method: :patch } %>
+      <% else %>
       <%= link_to icon('book'), has_read_user_book_path(@book.library_book(current_user, @book).first.id), { title: "Mark As Read", method: :patch } %>
+      <% end %>
     </div>
     <div class="bottomNavRight">
       <%= link_to icon('trash'), user_book_path(@book.library_book(current_user, @book).first.id), title: "Remove From Library", controller: 'user_books', method: :delete, data: {confirm: "Are you sure?"} %>
