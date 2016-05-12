@@ -1,6 +1,6 @@
 <div class="smallSplash">
   <div class="footerContent">
-    <%= link_to icon('user-secret'), admin_root_path, title: "Admin Panel" if user_signed_in? && current_user.admin? %>
+    <%= link_to icon('user-secret'), admin_root_path, title: "Admin Panel" if user_signed_in? && current_user.try(:admin?) %>
     <%= link_to icon('user'), edit_user_registration_path, title: "Edit Your Profile" if user_signed_in? %>
   </div>
   <div class="title">

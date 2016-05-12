@@ -9,7 +9,7 @@ module Admin
     before_filter :authenticate_admin
 
     def authenticate_admin
-      if !current_user.admin?
+      if current_user && !current_user.admin?
           redirect_to root_url, notice: "Sorry You do not have enought privilege"
         end
       end
