@@ -34,7 +34,7 @@
     <div class="searchArea">
       <div class="form">
         <%= form_tag(search_books_path, method: "get", action: "search") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search By ISBN, Title, or Author" %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search By ISBN, Title, or Author", id: "addBookTextBox" %>
         <%= submit_tag "Search", name: nil %>
         <% end %>
         or<br />

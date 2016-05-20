@@ -24,7 +24,7 @@
 
     <div class="form addSearchForm">
       <%= form_tag(search_books_path, method: "get", action: "search") do %>
-      <%= text_field_tag :search, '', autofocus: true %>
+      <%= text_field_tag :search, '', autofocus: true, id: "addBookTextBox" %>
       Search by:&nbsp;&nbsp;
       <%= select_tag 'type', options_for_select(['ISBN', 'Author-Title'], 'ISBN') %>
       <%= icon('question-circle', title: "ISBN search will yield the most specific results, whereas Author/Title search will return a larger range of results.") %>
