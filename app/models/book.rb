@@ -15,7 +15,7 @@ class Book < ActiveRecord::Base
   paginates_per 8
 
   scope :unread, -> (current_user) {joins(:user_books).where("user_books.user_id = ? AND user_books.has_read = ?", current_user.id, false)}
-  
+
   def self.library_search(search)
     if search
       where("authors ILIKE ? OR title ILIKE ? or isbn ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}")
@@ -26,6 +26,8 @@ class Book < ActiveRecord::Base
     UserBook.where("user_id = ? AND book_id = ?", current_user.id, book.id)
   end
 
+  # Much love to sawa on stackoverflow!
+  # http://stackoverflow.com/a/18533211/6094225
   def drop_trailing_zero(num)
     i, f = num.to_i, num.to_f
     i == f ? i : f
